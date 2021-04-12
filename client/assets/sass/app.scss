@@ -1,0 +1,35 @@
+@import "~perfect-scrollbar/css/perfect-scrollbar.css";
+@import "scss/variables";
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+@import "~prismjs/plugins/toolbar/prism-toolbar.css";
+@import "~prismjs/themes/prism-okaidia";
+@import "scss/app-variables";
+@import "scss/mixins";
+@import "scss/core/palette";
+@import "scss/custom-bootstrap";
+@import "scss/custom-bootstrap-rtl";
+@import "scss/core";
+@import "scss/fonts/weather-icons";
+@import "scss/plugins";
+@import "~ngx-ui-switch/ui-switch.component.scss";
+@import "~@ng-select/ng-select/themes/default.theme.css";
+@import "scss/demo"; // Remove this SCSS from production
+
+// devextreme datagrid
+.dx-datagrid {
+    font-family: Montserrat, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
+    font-size: 1.5rem;
+    font-weight: 430;
+}
+
+a.dx-link.dx-link-icon {
+    font-size: 27px !important;
+}
+
+tr.dx-row.dx-header-row {
+    background-color: #f7f7f8;
+}
+
+.dx-pages {
+    font-size: 1rem;
+}
