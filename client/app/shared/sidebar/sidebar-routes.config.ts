@@ -11,5 +11,5 @@ export const ROUTES: RouteInfo[] = [
     },
     { path: '/pages/login', title: 'Login', icon: 'ft-users', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
     { path: '/pages/forgotpassword', title: 'Forgot Password', icon: 'ft-users', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-    { path: '/pages/comingsoon', title: 'Commin g Soon', icon: 'ft-loader', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] }
+    { path: '/pages/comingsoon', title: 'Comming Soon', icon: 'ft-loader', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] }
 ];
