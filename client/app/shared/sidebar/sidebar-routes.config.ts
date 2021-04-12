@@ -9,5 +9,7 @@ export const ROUTES: RouteInfo[] = [
             { path: '/dashboard/dashboard2', title: 'Submenu2', icon: '', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
         ]
     },
-    { path: '/trips/trip-req-table', title: 'Menu 2', icon: 'ft-file-text', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+    { path: '/pages/login', title: 'Login', icon: 'ft-users', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+    { path: '/pages/forgotpassword', title: 'Forgot Password', icon: 'ft-users', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+    { path: '/pages/comingsoon', title: 'Commin g Soon', icon: 'ft-loader', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] }
 ];
