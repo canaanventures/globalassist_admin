@@ -21,7 +21,6 @@
     "@angular/router": "~9.1.7",
     "jquery": "^3.5.1",
     "ng-simple-slideshow": "^1.2.9",
-    "ngx-slick-carousel": "^0.5.1",
     "ngx-spinner": "^10.0.1",
     "ngx-toastr": "^13.2.0",
     "rxjs": "^6.5.2",

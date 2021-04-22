@@ -2,7 +2,6 @@ import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/cor
 /* [ Custom Pipe ] */
 import { TruncatePipe, PhonePrefixPlusPipe } from './app.pipe';
 /* [ Shared Plugins ] */
-import { SlickCarouselModule } from 'ngx-slick-carousel';
 import { SlideshowModule } from 'ng-simple-slideshow';
 /* [ shared Module ] */
 import {
@@ -17,7 +16,6 @@ import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
 import { FootBarComponent } from '../components/foot-bar/foot-bar.component';
 @NgModule({
   imports: [
-    SlickCarouselModule,
     SlideshowModule,
   ],
   declarations: [
@@ -44,7 +42,6 @@ import { FootBarComponent } from '../components/foot-bar/foot-bar.component';
     PhonePrefixPlusPipe,
     IBMPhoneDirective,
     NumberZeroGreaterDirective,
-    SlickCarouselModule,
     SlideshowModule,
     NavBarComponent,
     FootBarComponent
