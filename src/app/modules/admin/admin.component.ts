@@ -25,7 +25,8 @@ export class AdminComponent extends AppComponent implements OnInit {
       router,
       ApiService,
       location,
-      spinner
+      spinner,
+      toastr
     );
     // let User = JSON.parse(localStorage.getItem("JobPortal"));
     // if (User) {

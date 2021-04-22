@@ -27,7 +27,8 @@ export class NavBarComponent extends AppComponent implements OnInit {
       router,
       ApiService,
       location,
-      spinner
+      spinner,
+      toastr
     );
   }
 

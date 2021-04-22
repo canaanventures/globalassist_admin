@@ -27,7 +27,8 @@ export class FootBarComponent extends AppComponent implements OnInit {
       router,
       ApiService,
       location,
-      spinner
+      spinner,
+      toastr
     );
   }
 

@@ -26,7 +26,8 @@ export class UserComponent extends AppComponent implements OnInit {
       router,
       ApiService,
       location,
-      spinner
+      spinner,
+      toastr
     );
 
   }
