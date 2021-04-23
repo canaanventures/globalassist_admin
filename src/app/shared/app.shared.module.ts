@@ -14,6 +14,7 @@ import {
 } from './app.directive';
 import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
 import { FootBarComponent } from '../components/foot-bar/foot-bar.component';
+import { SideBarComponent } from '../components/side-bar/side-bar.component';
 @NgModule({
   imports: [
     SlideshowModule,
@@ -28,7 +29,8 @@ import { FootBarComponent } from '../components/foot-bar/foot-bar.component';
     IBMPhoneDirective,
     NumberZeroGreaterDirective,
     NavBarComponent,
-    FootBarComponent
+    FootBarComponent,
+    SideBarComponent
   ],
   providers: [
   ],
@@ -44,6 +46,7 @@ import { FootBarComponent } from '../components/foot-bar/foot-bar.component';
     NumberZeroGreaterDirective,
     SlideshowModule,
     NavBarComponent,
+    SideBarComponent,
     FootBarComponent
   ],
   // schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
