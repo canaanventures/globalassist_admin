@@ -43,7 +43,7 @@ nav ul {
     padding: 0;
     width: 196px;
 }
-nav ul li span {
+nav ul li {
     color: #aeb2b7;
     text-decoration: none;
     display: block;
@@ -56,24 +56,27 @@ nav ul li span {
     -o-transition: 0.2s linear;
     transition: 0.2s linear;
 }
-nav ul li span:hover {
-    background: #4ecdc4;
+nav ul li:hover {
     color: #515151;
 }
-nav ul li span .fa {
+nav ul li .fa {
     width: 16px;
     text-align: center;
     margin-right: 5px;
 }
 nav ul ul {
     background-color: #ebebeb;
+    margin: 16px 0px 0px 10px;
 }
-nav ul li ul li span {
-    background: #f8f8f8;
+nav ul li ul li {
+    background: #22242ae6 !important;
     border-left: 4px solid transparent;
     padding: 10px 20px;
 }
-nav ul li ul li span:hover {
-    background: #ebebeb;
-    border-left: 4px solid #3498db;
+nav ul li ul li:hover {
+    color: #515151 !important;
+}
+
+.active {
+    color: #fff !important;
 }

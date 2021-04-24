@@ -37,14 +37,24 @@ export class UserComponent extends AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    $('.sub-menu ul').hide();
   }
 
   ngAfterContentInit() {
-    $('.sub-menu ul').hide();
-    $(".sub-menu a").click(function () {
-      $(this).parent(".sub-menu").children("ul").slideToggle("100");
-      $(this).find(".right").toggleClass("fa-caret-up fa-caret-down");
-    });
+    var header: any = document.getElementsByClassName("animated")[0];
+    var btns = header.getElementsByTagName("li");
+    for (var i = 0; i < btns.length; i++) {
+      btns[i].addEventListener("click", function () {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace("active", "");
+        this.className += " active";
+      });
+    }
+  }
+
+  submenu(e) {
+    if (e.target.innerText.includes('Contact'))
+      $('.sub-item').slideToggle("100");
   }
 
 }

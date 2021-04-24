@@ -14,16 +14,16 @@
         <h5 class="centered">Rajesh Pagare</h5>
         <nav class='animated bounceInDown'>
             <ul>
-                <li><span><i class="fa fa-book"></i>Profile</span></li>
-                <li class='sub-menu'><span><i class="fa fa-desktop"></i>Contact</span>
-                    <ul>
-                        <li><span>Member List</span></li>
-                        <li><span>Add Member</span></li>
-                        <li><span>Report Approval</span></li>
+                <li class=" active"><i class="fa fa-book"></i>Profile</li>
+                <li id="sub-menu" class='sub-menu' (click)="submenu($event)"><i class="fa fa-desktop"></i>Contact
+                    <ul class="sub-item">
+                        <li>Member List</li>
+                        <li>Add Member</li>
+                        <li>Report Approval</li>
                     </ul>
                 </li>
-                <li><span><i class="fas fa-tachometer-alt"></i> &nbsp; Dashboard</span></li>
-                <li><span><i class="fas fa-sign-out-alt"></i> &nbsp; Logout</span></li>
+                <li><i class="fas fa-tachometer-alt"></i> &nbsp; Dashboard</li>
+                <li><i class="fas fa-sign-out-alt"></i> &nbsp; Logout</li>
             </ul>
         </nav>
     </ng-sidebar>
