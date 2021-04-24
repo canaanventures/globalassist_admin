@@ -19,9 +19,11 @@
                     <ul class="sub-item">
                         <li (click)="Openpage('member-list')">Member List</li>
                         <li (click)="Openpage('add-member')">Add Member</li>
-                        <li (click)="Openpage('report-approval')">Report Approval</li>
+                        <li (click)="Openpage('reportapproval')">Report Approval</li>
                     </ul>
                 </li>
+                <li class="" (click)="Openpage('sendreport')"><i class="far fa-file-alt"></i>&nbsp; Send Report</li>
+                <li class="" (click)="Openpage('reporthistory')"><i class="fa fa-book"></i>Report History</li>
                 <li (click)="Openpage('dashboard')"><i class="fas fa-tachometer-alt"></i> &nbsp; Dashboard</li>
                 <li (click)="Openpage('logout')"><i class="fas fa-sign-out-alt"></i> &nbsp; Logout</li>
             </ul>
@@ -35,8 +37,7 @@
                 <div (click)="_toggleOpened()"><i class="fas fa-bars"></i></div>
             </div>
             <!--logo start-->
-            <a href="#" class="logo"><img alt="Global Assist" src="assets/img/logo.png" class="centered"
-                    width="85"></a>
+            <a href="#" class="logo"><img alt="Global Assist" src="assets/img/logo.png" class="centered" width="85"></a>
             <!--logo end-->
         </header>
         <section class="demo-contents">

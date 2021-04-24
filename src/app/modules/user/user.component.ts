@@ -12,7 +12,7 @@ import * as $ from 'jquery';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent extends AppComponent implements OnInit {
-  _opened: boolean = false;
+  _opened: boolean = true;
   slide: string = 'push';
   constructor(
     activatedRoute: ActivatedRoute,
@@ -59,13 +59,17 @@ export class UserComponent extends AppComponent implements OnInit {
 
   Openpage(page) {
     if (page == 'profile')
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/profile');
     else if (page == 'add-member')
       this.router.navigateByUrl('/addusers');
     else if (page == 'member-list')
-      this.router.navigateByUrl('/login');
-    else if (page == 'report-approval')
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/memberlist');
+    else if (page == 'reportapproval')
+      this.router.navigateByUrl('/reportapproval');
+    else if (page == 'reporthistory')
+      this.router.navigateByUrl('/reporthistory');
+    else if (page == 'sendreport')
+      this.router.navigateByUrl('/sendreport');
     else if (page == 'dashboard')
       this.router.navigateByUrl('/login');
     else if (page == 'logout')

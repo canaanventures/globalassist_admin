@@ -14,6 +14,10 @@ import { HomeComponent } from 'src/app/pages/user/home/home.component';
 import { ForgotPasswordComponent } from 'src/app/pages/user/forgot-password/forgot-password.component';
 import { UserProfileComponent } from 'src/app/pages/user/user-profile/user-profile.component';
 import { AddUsersComponent } from 'src/app/pages/user/add-users/add-users.component';
+import { MembersListComponent } from 'src/app/pages/user/members-list/members-list.component';
+import { ReportApprovalComponent } from 'src/app/pages/user/report-approval/report-approval.component';
+import { ReportHistoryComponent } from 'src/app/pages/user/report-history/report-history.component';
+import { SendReportComponent } from 'src/app/pages/user/send-report/send-report.component';
 
 
 const routes: Routes = [{
@@ -55,6 +59,34 @@ const routes: Routes = [{
       data: {
         title: CONST.PATH.USER.ADDUSERS.TITLE
       }
+    },
+    {
+      path: CONST.PATH.USER.MEMBERLIST.SELF,
+      component: MembersListComponent,
+      data: {
+        title: CONST.PATH.USER.MEMBERLIST.TITLE
+      }
+    },
+    {
+      path: CONST.PATH.USER.REPORTAPPROVAL.SELF,
+      component: ReportApprovalComponent,
+      data: {
+        title: CONST.PATH.USER.REPORTAPPROVAL.TITLE
+      }
+    },
+    {
+      path: CONST.PATH.USER.REPORTHISTORY.SELF,
+      component: ReportHistoryComponent,
+      data: {
+        title: CONST.PATH.USER.REPORTHISTORY.TITLE
+      }
+    },
+    {
+      path: CONST.PATH.USER.SENDREPORT.SELF,
+      component: SendReportComponent,
+      data: {
+        title: CONST.PATH.USER.SENDREPORT.TITLE
+      }
     }
   ]
 }];
@@ -65,7 +97,11 @@ const routes: Routes = [{
     HomeComponent,
     ForgotPasswordComponent,
     UserProfileComponent,
-    AddUsersComponent
+    AddUsersComponent,
+    MembersListComponent,
+    ReportApprovalComponent,
+    ReportHistoryComponent,
+    SendReportComponent
   ],
   imports: [
     CommonModule,

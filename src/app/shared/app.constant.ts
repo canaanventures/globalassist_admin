@@ -29,19 +29,22 @@ export const CONST = Object.freeze({
       ADDUSERS: {
         SELF: 'addusers',
         TITLE: 'addusers'
-      }
-    },
-
-    // For Admin Module
-    ADMIN: {
-      SELF: 'admin',
-      DASHBOARD: {
-        SELF: 'dashboard',
-        TITLE: 'dashboard'
       },
-      PROFILE: {
-        SELF: 'profile',
-        TITLE: 'profile'
+      MEMBERLIST: {
+        SELF: 'memberlist',
+        TITLE: 'memberlist'
+      },
+      REPORTAPPROVAL: {
+        SELF: 'reportapproval',
+        TITLE: 'reportapproval'
+      },
+      SENDREPORT: {
+        SELF: 'sendreport',
+        TITLE: 'sendreport'
+      },
+      REPORTHISTORY: {
+        SELF: 'reporthistory',
+        TITLE: 'reporthistory'
       }
     }
   }
