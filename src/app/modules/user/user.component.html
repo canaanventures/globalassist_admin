@@ -14,16 +14,16 @@
         <h5 class="centered">Rajesh Pagare</h5>
         <nav class='animated bounceInDown'>
             <ul>
-                <li class=" active"><i class="fa fa-book"></i>Profile</li>
+                <li class=" active" (click)="Openpage('profile')"><i class="fa fa-book"></i>Profile</li>
                 <li id="sub-menu" class='sub-menu' (click)="submenu($event)"><i class="fa fa-desktop"></i>Contact
                     <ul class="sub-item">
-                        <li>Member List</li>
-                        <li>Add Member</li>
-                        <li>Report Approval</li>
+                        <li (click)="Openpage('member-list')">Member List</li>
+                        <li (click)="Openpage('add-member')">Add Member</li>
+                        <li (click)="Openpage('report-approval')">Report Approval</li>
                     </ul>
                 </li>
-                <li><i class="fas fa-tachometer-alt"></i> &nbsp; Dashboard</li>
-                <li><i class="fas fa-sign-out-alt"></i> &nbsp; Logout</li>
+                <li (click)="Openpage('dashboard')"><i class="fas fa-tachometer-alt"></i> &nbsp; Dashboard</li>
+                <li (click)="Openpage('logout')"><i class="fas fa-sign-out-alt"></i> &nbsp; Logout</li>
             </ul>
         </nav>
     </ng-sidebar>

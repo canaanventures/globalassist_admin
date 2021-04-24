@@ -57,4 +57,19 @@ export class UserComponent extends AppComponent implements OnInit {
       $('.sub-item').slideToggle("100");
   }
 
+  Openpage(page) {
+    if (page == 'profile')
+      this.router.navigateByUrl('/login');
+    else if (page == 'add-member')
+      this.router.navigateByUrl('/login');
+    else if (page == 'member-list')
+      this.router.navigateByUrl('/login');
+    else if (page == 'report-approval')
+      this.router.navigateByUrl('/login');
+    else if (page == 'dashboard')
+      this.router.navigateByUrl('/login');
+    else if (page == 'logout')
+      this.router.navigateByUrl('/login');
+  }
+
 }
