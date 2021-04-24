@@ -14,6 +14,7 @@ import * as $ from 'jquery';
 export class UserComponent extends AppComponent implements OnInit {
   _opened: boolean = true;
   slide: string = 'push';
+  isMobile: boolean = false;
   constructor(
     activatedRoute: ActivatedRoute,
     router: Router,
@@ -30,6 +31,9 @@ export class UserComponent extends AppComponent implements OnInit {
       spinner,
       toastr
     );
+    if (/Android|webOS|iPhone|iPad|Mac|Macintosh|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) {
+      this.isMobile = true;
+    }
   }
 
   _toggleOpened() {
