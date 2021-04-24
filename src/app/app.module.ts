@@ -3,23 +3,28 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-/* [ Spinner ] */
+import { Routes, RouterModule } from '@angular/router';
+import { CONST } from './shared/app.constant';
 import { NgxSpinnerModule } from 'ngx-spinner';
-/* [ Token Interceptor ] */
 import { AuthInterceptor } from './shared/auth-interceptor';
 import { ResponseInterceptor } from './shared/response-interceptor';
-/* [ Service ] */
 import { ApiService } from './shared/app.service';
-/* [ Shared Module ] */
 import { AppSharedModule } from './shared/app.shared.module';
+import { SidebarModule } from 'ng-sidebar';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
+import { LoginComponent } from './components/login/login.component';
 
+const routes: Routes = [{
+  path: CONST.PATH.LOGIN.SELF,
+  component: LoginComponent
+}];
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +35,9 @@ import { ToastrModule } from 'ngx-toastr';
     AppRoutingModule,
     AppSharedModule,
     NgxSpinnerModule,
-    ToastrModule.forRoot()
+    SidebarModule.forRoot(),
+    ToastrModule.forRoot(),
+    RouterModule.forChild(routes),
   ],
   providers: [
     ApiService,

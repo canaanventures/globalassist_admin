@@ -3,6 +3,8 @@ import { NgModule, NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA } from '@angular/cor
 import { TruncatePipe, PhonePrefixPlusPipe } from './app.pipe';
 /* [ Shared Plugins ] */
 import { SlideshowModule } from 'ng-simple-slideshow';
+import { SidebarModule } from 'ng-sidebar';
+
 /* [ shared Module ] */
 import {
   DecimalNumberOnlyDirective,
@@ -12,12 +14,10 @@ import {
   IBMPhoneDirective,
   NumberZeroGreaterDirective
 } from './app.directive';
-import { NavBarComponent } from '../components/nav-bar/nav-bar.component';
-import { FootBarComponent } from '../components/foot-bar/foot-bar.component';
-import { SideBarComponent } from '../components/side-bar/side-bar.component';
 @NgModule({
   imports: [
     SlideshowModule,
+    SidebarModule
   ],
   declarations: [
     DecimalNumberOnlyDirective,
@@ -28,9 +28,6 @@ import { SideBarComponent } from '../components/side-bar/side-bar.component';
     PhonePrefixPlusPipe,
     IBMPhoneDirective,
     NumberZeroGreaterDirective,
-    NavBarComponent,
-    FootBarComponent,
-    SideBarComponent
   ],
   providers: [
   ],
@@ -45,9 +42,7 @@ import { SideBarComponent } from '../components/side-bar/side-bar.component';
     IBMPhoneDirective,
     NumberZeroGreaterDirective,
     SlideshowModule,
-    NavBarComponent,
-    SideBarComponent,
-    FootBarComponent
+    SidebarModule,
   ],
   // schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
 })

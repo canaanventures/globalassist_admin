@@ -2,7 +2,10 @@ export const CONST = Object.freeze({
   SESSION_NAME: 'jobportal',
   VERSION: '',
   PATH: {
-
+    LOGIN: {
+      SELF: 'login',
+      TITLE: 'login'
+    },
     // For User Module
     USER: {
       SELF: '',
@@ -10,10 +13,7 @@ export const CONST = Object.freeze({
         SELF: 'home',
         TITLE: 'home'
       },
-      LOGIN: {
-        SELF: 'login',
-        TITLE: 'login'
-      },
+
       REGISTER: {
         SELF: 'register',
         TITLE: 'register'
@@ -25,6 +25,10 @@ export const CONST = Object.freeze({
       PROFILE: {
         SELF: 'profile',
         TITLE: 'profile'
+      },
+      ADDUSERS: {
+        SELF: 'addusers',
+        TITLE: 'addusers'
       }
     },
 

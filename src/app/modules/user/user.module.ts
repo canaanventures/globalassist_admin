@@ -11,10 +11,10 @@ import { AppSharedModule } from '../../shared/app.shared.module';
 import { CONST } from '../../shared/app.constant';
 import { UserComponent } from './user.component';
 import { HomeComponent } from 'src/app/pages/user/home/home.component';
-import { LoginComponent } from 'src/app/pages/user/login/login.component';
 import { RegisterComponent } from 'src/app/pages/user/register/register.component';
 import { ForgotPasswordComponent } from 'src/app/pages/user/forgot-password/forgot-password.component';
 import { UserProfileComponent } from 'src/app/pages/user/user-profile/user-profile.component';
+import { AddUsersComponent } from 'src/app/pages/user/add-users/add-users.component';
 
 
 const routes: Routes = [{
@@ -37,13 +37,6 @@ const routes: Routes = [{
       }
     },
     {
-      path: CONST.PATH.USER.LOGIN.SELF,
-      component: LoginComponent,
-      data: {
-        title: CONST.PATH.USER.LOGIN.TITLE
-      }
-    },
-    {
       path: CONST.PATH.USER.REGISTER.SELF,
       component: RegisterComponent,
       data: {
@@ -63,6 +56,13 @@ const routes: Routes = [{
       data: {
         title: CONST.PATH.USER.PROFILE.TITLE
       }
+    },
+    {
+      path: CONST.PATH.USER.ADDUSERS.SELF,
+      component: AddUsersComponent,
+      data: {
+        title: CONST.PATH.USER.ADDUSERS.TITLE
+      }
     }
   ]
 }];
@@ -71,10 +71,10 @@ const routes: Routes = [{
   declarations: [
     UserComponent,
     HomeComponent,
-    LoginComponent,
     RegisterComponent,
     ForgotPasswordComponent,
     UserProfileComponent,
+    AddUsersComponent
   ],
   imports: [
     CommonModule,

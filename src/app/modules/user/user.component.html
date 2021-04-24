@@ -1,8 +1,53 @@
-<section id="container">
-    <app-nav-bar></app-nav-bar>
-    <app-side-bar></app-side-bar>
-    <section id="main-content">
-        <router-outlet></router-outlet>
-    </section>
-    <app-foot-bar></app-foot-bar>
-</section>
+<ng-sidebar-container style="height: 100vh;">
+    <!-- A sidebar -->
+    <ng-sidebar [(opened)]="_opened" [mode]="slide">
+        <div class="header_cont">
+            <div class="sidebar-toggle-box" style="padding-left: 15px">
+                <div (click)="_toggleOpened()"><i class="fas fa-bars"></i></div>
+            </div>
+            <!--logo start-->
+            <a href="#" class="logo"><img alt="Global Assist" src="assets/img/logo.png" class="centered" width="85"></a>
+        </div>
+        <p class="centered">
+            <a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="80"></a>
+        </p>
+        <h5 class="centered">Rajesh Pagare</h5>
+        <nav class='animated bounceInDown'>
+            <ul>
+                <li><span><i class="fa fa-book"></i>Profile</span></li>
+                <li class='sub-menu'><span><i class="fa fa-desktop"></i>Contact</span>
+                    <ul>
+                        <li><span>Member List</span></li>
+                        <li><span>Add Member</span></li>
+                        <li><span>Report Approval</span></li>
+                    </ul>
+                </li>
+                <li><span><i class="fas fa-tachometer-alt"></i> &nbsp; Dashboard</span></li>
+                <li><span><i class="fas fa-sign-out-alt"></i> &nbsp; Logout</span></li>
+            </ul>
+        </nav>
+    </ng-sidebar>
+
+    <!-- Page content -->
+    <div ng-sidebar-content>
+        <header class="header black-bg">
+            <div *ngIf="!_opened" class="sidebar-toggle-box">
+                <div (click)="_toggleOpened()"><i class="fas fa-bars"></i></div>
+            </div>
+            <!--logo start-->
+            <a *ngIf="!_opened" href="#" class="logo"><img alt="Global Assist" src="assets/img/logo.png"
+                    class="centered" width="85"></a>
+            <!--logo end-->
+        </header>
+        <section class="demo-contents">
+            <router-outlet></router-outlet>
+        </section>
+        <footer class="site-footer">
+            <div class="text-center">
+                <p>
+                    &copy; Copyrights <strong>Global Assist</strong>. All Rights Reserved
+                </p>
+            </div>
+        </footer>
+    </div>
+</ng-sidebar-container>

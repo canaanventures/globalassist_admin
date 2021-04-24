@@ -1,0 +1,79 @@
+::ng-deep aside {
+    background: #22242ae6 !important;
+    padding: 2em 1em;
+    position: absolute;
+    top: 60px;
+}
+
+h5 {
+    color: #f2f2f2;
+    font-weight: 700;
+}
+
+.demo-contents {
+    min-height: 916px !important;
+}
+
+.header_cont {
+    background-color: #22242a;
+    height: 58px;
+    margin-bottom: 35px;
+    margin-left: -13px;
+    margin-right: -13px;
+    margin-top: -24px;
+}
+
+.demo-header {
+    align-items: center;
+    background: #0273d4;
+    box-shadow: 0 0.1em 1.5em rgb(84 85 85 / 50%);
+    color: #fff;
+    display: flex;
+    padding: 1em;
+}
+
+nav {
+    position: relative;
+    margin: 15px 50px 50px 0px;
+    width: 147px;
+}
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 196px;
+}
+nav ul li span {
+    color: #aeb2b7;
+    text-decoration: none;
+    display: block;
+    padding: 15px 0 15px 10px;
+    font-size: 12px;
+    outline: none;
+    -webkit-transition: 0.2s linear;
+    -moz-transition: 0.2s linear;
+    -ms-transition: 0.2s linear;
+    -o-transition: 0.2s linear;
+    transition: 0.2s linear;
+}
+nav ul li span:hover {
+    background: #4ecdc4;
+    color: #515151;
+}
+nav ul li span .fa {
+    width: 16px;
+    text-align: center;
+    margin-right: 5px;
+}
+nav ul ul {
+    background-color: #ebebeb;
+}
+nav ul li ul li span {
+    background: #f8f8f8;
+    border-left: 4px solid transparent;
+    padding: 10px 20px;
+}
+nav ul li ul li span:hover {
+    background: #ebebeb;
+    border-left: 4px solid #3498db;
+}
