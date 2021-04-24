@@ -6,7 +6,7 @@
                 <div (click)="_toggleOpened()"><i class="fas fa-bars"></i></div>
             </div>
             <!--logo start-->
-            <a href="#" class="logo"><img alt="Global Assist" src="assets/img/logo.png" class="centered" width="85"></a>
+            <img alt="Global Assist" src="assets/img/logo.png" class="centered" width="85">
         </div>
         <p class="centered">
             <a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="80"></a>
@@ -31,12 +31,12 @@
     <!-- Page content -->
     <div ng-sidebar-content>
         <header class="header black-bg">
-            <div *ngIf="!_opened" class="sidebar-toggle-box">
+            <div class="sidebar-toggle-box">
                 <div (click)="_toggleOpened()"><i class="fas fa-bars"></i></div>
             </div>
             <!--logo start-->
-            <a *ngIf="!_opened" href="#" class="logo"><img alt="Global Assist" src="assets/img/logo.png"
-                    class="centered" width="85"></a>
+            <a href="#" class="logo"><img alt="Global Assist" src="assets/img/logo.png" class="centered"
+                    width="85"></a>
             <!--logo end-->
         </header>
         <section class="demo-contents">

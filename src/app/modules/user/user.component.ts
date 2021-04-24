@@ -12,8 +12,8 @@ import * as $ from 'jquery';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent extends AppComponent implements OnInit {
-  _opened: boolean = true;
-  slide: string = 'slide';
+  _opened: boolean = false;
+  slide: string = 'push';
   constructor(
     activatedRoute: ActivatedRoute,
     router: Router,
@@ -61,7 +61,7 @@ export class UserComponent extends AppComponent implements OnInit {
     if (page == 'profile')
       this.router.navigateByUrl('/login');
     else if (page == 'add-member')
-      this.router.navigateByUrl('/login');
+      this.router.navigateByUrl('/addusers');
     else if (page == 'member-list')
       this.router.navigateByUrl('/login');
     else if (page == 'report-approval')
