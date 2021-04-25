@@ -50,6 +50,7 @@ nav ul {
     width: 196px;
 }
 nav ul li {
+    cursor: pointer;
     color: #aeb2b7;
     text-decoration: none;
     display: block;
@@ -100,6 +101,10 @@ nav ul li ul li:hover {
     padding-bottom: 0px;
 }
 
+.dropdown-toggle {
+    color: #fff;
+    cursor: pointer;
+}
 .navbar-login-session {
     padding: 10px;
     padding-bottom: 0px;
