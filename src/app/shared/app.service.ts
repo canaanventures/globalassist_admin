@@ -85,7 +85,7 @@ export class ApiService {
    * Method - GET
    */
 
-  getAll(url, params = null) {
+  getAll(url, params = null): Observable<any> {
     if (params !== null) {
       url = url + '?';
       if (this.encodURIParams(params) !== '') {

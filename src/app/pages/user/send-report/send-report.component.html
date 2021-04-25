@@ -5,80 +5,147 @@
                 <h4>Submit Report - April 2021</h4>
                 <hr>
                 <div class=" form">
-                    <form class="cmxform form-horizontal style-form" id="commentForm" method="get" action="">
+                    <form class="form cmxform form-horizontal style-form" [formGroup]="reportForm"
+                        (ngSubmit)="onReportSubmit()" novalidate>
                         <div class="form-group ">
                             <label for="cname" class="control-label col-lg-2">No Of Villages</label>
                             <div class="col-lg-4">
-                                <input class="form-control" id="disabledInput" type="number" placeholder="1" />
+                                <input class="form-control" id="disabledInput" type="number"
+                                    formControlName="NoOfVillages" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && reportForm.controls.NoOfVillages.errors?.required">
+                                    No of villages is required.
+                                </span>
                             </div>
                             <label for="cname" class="control-label col-lg-2">No Of New Group</label>
                             <div class="col-lg-4">
-                                <input class="form-control" id="disabledInput" type="number" placeholder="1" disabled />
+                                <input class="form-control" id="disabledInput" type="number"
+                                    formControlName="NoOfNewGroup" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && reportForm.controls.NoOfNewGroup.errors?.required">
+                                    No of New Group is required.
+                                </span>
                             </div>
                         </div>
 
                         <div class="form-group ">
                             <label for="cname" class="control-label col-lg-2">No Of Person Heard</label>
                             <div class="col-lg-4">
-                                <input class="form-control" id="disabledInput" type="number" placeholder="1" disabled />
+                                <input class="form-control" id="disabledInput" type="number" disabled
+                                    formControlName="NoOfPersonHeard" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && reportForm.controls.NoOfPersonHeard.errors?.required">
+                                    No Of Person Heard is required.
+                                </span>
                             </div>
                             <label for="cname" class="control-label col-lg-2">No Of Men</label>
                             <div class="col-lg-4">
-                                <input class="form-control" id="disabledInput" type="number" placeholder="1" />
+                                <input class="form-control" id="disabledInput" type="number"
+                                    formControlName="NoOfMen" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && reportForm.controls.NoOfMen.errors?.required">
+                                    No Of Men is required.
+                                </span>
                             </div>
                             <label for="cname" class="control-label col-lg-2">No Of Women</label>
                             <div class="col-lg-4">
-                                <input class="form-control" id="disabledInput" type="number" placeholder="1" />
+                                <input class="form-control" id="disabledInput" type="number"
+                                    formControlName="NoOfWomen" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && reportForm.controls.NoOfWomen.errors?.required">
+                                    No Of Women is required.
+                                </span>
                             </div>
 
                             <label for="cname" class="control-label col-lg-2">No Of Children</label>
                             <div class="col-lg-4">
-                                <input class="form-control" id="disabledInput" type="number" placeholder="1" />
+                                <input class="form-control" id="disabledInput" type="number"
+                                    formControlName="NoOfChildren" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && reportForm.controls.NoOfChildren.errors?.required">
+                                    No Of Children is required.
+                                </span>
                             </div>
                         </div>
 
                         <div class="form-group ">
                             <label for="cname" class="control-label col-lg-2">No Of Volunteers</label>
                             <div class="col-lg-4">
-                                <input class="form-control" id="disabledInput" type="number" placeholder="1" />
+                                <input class="form-control" id="disabledInput" type="number"
+                                    formControlName="NoOfVolunteers" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && reportForm.controls.NoOfVolunteers.errors?.required">
+                                    No Of Volunteers is required.
+                                </span>
                             </div>
                             <label for="cname" class="control-label col-lg-2">No Of Level1 Leader</label>
                             <div class="col-lg-4">
-                                <input class="form-control" id="disabledInput" type="number" placeholder="1" />
+                                <input class="form-control" id="disabledInput" type="number"
+                                    formControlName="NoOfLevel1Leader" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && reportForm.controls.NoOfLevel1Leader.errors?.required">
+                                    No Of Level1 Leader is required.
+                                </span>
                             </div>
                             <label for="cname" class="control-label col-lg-2">No Of Level2 Leader</label>
                             <div class="col-lg-4">
-                                <input class="form-control" id="disabledInput" type="number" placeholder="1" />
+                                <input class="form-control" id="disabledInput" type="number"
+                                    formControlName="NoOfLevel2Leader" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && reportForm.controls.NoOfLevel2Leader.errors?.required">
+                                    No Of Level2 Leader is required.
+                                </span>
                             </div>
                             <label for="cname" class="control-label col-lg-2">No Of Level3 Leader</label>
                             <div class="col-lg-4">
-                                <input class="form-control" id="disabledInput" type="number" placeholder="1" />
+                                <input class="form-control" id="disabledInput" type="number"
+                                    formControlName="NoOfLevel3Leader" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && reportForm.controls.NoOfLevel3Leader.errors?.required">
+                                    No Of Level3 Leader is required.
+                                </span>
                             </div>
                         </div>
 
                         <div class="form-group ">
                             <label for="cname" class="control-label col-lg-2">No Of Social Projects</label>
                             <div class="col-lg-4">
-                                <input class=" form-control" id="cname" name="name" type="number" />
+                                <input class=" form-control" id="NoOfSocialProjects" name="NoOfSocialProjects"
+                                    type="number" formControlName="NoOfSocialProjects" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && reportForm.controls.NoOfSocialProjects.errors?.required">
+                                    No Of Social Projects is required.
+                                </span>
                             </div>
                             <label for="cname" class="control-label col-lg-2">No Of Beneficiaries</label>
                             <div class="col-lg-4">
-                                <input class=" form-control" id="cname" name="name" type="number" />
+                                <input class=" form-control" id="NoOfBeneficiaries" name="NoOfBeneficiaries"
+                                    type="number" formControlName="NoOfBeneficiaries" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && reportForm.controls.NoOfBeneficiaries.errors?.required">
+                                    No Of Beneficiaries is required.
+                                </span>
                             </div>
                         </div>
                         <div class="form-group ">
                             <label for="cemail" class="control-label col-lg-2">Good Points to Report</label>
                             <div class="col-lg-4">
                                 <span class="select">
-                                    <select>
+                                    <select formControlName="isGoodPoints">
                                         <option value="Yes" selected>Yes</option>
                                         <option value="No">No</option>
                                     </select>
                                 </span>
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && reportForm.controls.isGoodPoints.errors?.required">
+                                    Good Points to report is required.
+                                </span>
                             </div>
-                            <label for="cemail" class="control-label col-lg-2">Good Points</label>
-                            <div class="col-lg-4">
-                                <textarea class=" form-control" id="cname" name="name" rows="3" cols="50"></textarea>
+                            <label *ngIf="reportForm.value.isGoodPoints == 'Yes'" for="cemail"
+                                class="control-label col-lg-2">Good Points</label>
+                            <div *ngIf="reportForm.value.isGoodPoints == 'Yes'" class="col-lg-4">
+                                <textarea class=" form-control" id="cname" name="name" rows="3" cols="50"
+                                    formControlName="GoodPoints"></textarea>
                             </div>
                         </div>
 
@@ -86,15 +153,21 @@
                             <label for="cemail" class="control-label col-lg-2">Concerns to Report</label>
                             <div class="col-lg-4">
                                 <span class="select">
-                                    <select>
-                                        <option value="Yes" selected>Yes</option>
+                                    <select formControlName="isConcernReport">
+                                        <option value="Yes">Yes</option>
                                         <option value="No">No</option>
                                     </select>
                                 </span>
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && reportForm.controls.isConcernReport.errors?.required">
+                                    Concern to report is required.
+                                </span>
                             </div>
-                            <label for="cemail" class="control-label col-lg-2">Concern Points</label>
-                            <div class="col-lg-4">
-                                <textarea class=" form-control" id="cname" name="name" rows="3" cols="50"></textarea>
+                            <label *ngIf="reportForm.value.isConcernReport == 'Yes'" for="cemail"
+                                class="control-label col-lg-2">Concern Points</label>
+                            <div *ngIf="reportForm.value.isConcernReport == 'Yes'" class="col-lg-4">
+                                <textarea class=" form-control" id="cname" name="name" rows="3" cols="50"
+                                    formControlName="ConcernPoints"></textarea>
                             </div>
                         </div>
 
@@ -102,26 +175,48 @@
                             <label for="cemail" class="control-label col-lg-2">Photos Shared</label>
                             <div class="col-lg-4">
                                 <span class="select">
-                                    <select>
+                                    <select formControlName="isPhotoShared">
                                         <option value="Yes" selected>Yes</option>
                                         <option value="No">No</option>
                                     </select>
+                                </span>
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && reportForm.controls.isPhotoShared.errors?.required">
+                                    Photo Shared is required.
                                 </span>
                             </div>
                             <label for="cemail" class="control-label col-lg-2">Videos Shared</label>
                             <div class="col-lg-4">
                                 <span class="select">
-                                    <select>
+                                    <select formControlName="isVideoShared">
                                         <option value="Yes" selected>Yes</option>
                                         <option value="No">No</option>
                                     </select>
+                                    <span class="error-mess"
+                                        *ngIf="isSubmitted && reportForm.controls.isVideoShared.errors?.required">
+                                        Video Shared is required.
+                                    </span>
                                 </span>
                             </div>
                         </div>
+
+                        <div class="form-group ">
+                            <label for="cemail" class="control-label col-lg-2">Supervisor Remarks</label>
+                            <div class="col-lg-4">
+                                <textarea class=" form-control" id="cname" name="name" rows="3" cols="50"
+                                    formControlName="SupervisorRemarks"></textarea>
+                            </div>
+                            <label for="cemail" class="control-label col-lg-2">Coordinator Remarks</label>
+                            <div class="col-lg-4">
+                                <textarea class=" form-control" id="cname" name="name" rows="3" cols="50"
+                                    formControlName="CoordinatorRemarks"></textarea>
+                            </div>
+                        </div>
+
                         <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-6">
-                                <button class="btn btn-theme" type="submit">Save</button>
-                                <button class="btn btn-theme04" type="button">Cancel</button>
+                                <button class="btn btn-theme">Save</button>
+                                <button class="btn btn-theme04">Cancel</button>
                             </div>
                         </div>
                     </form>
