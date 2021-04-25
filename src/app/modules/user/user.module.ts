@@ -31,7 +31,7 @@ const routes: Routes = [{
     {
       path: '',
       pathMatch: 'full',
-      redirectTo: 'home'
+      redirectTo: 'profile'
     },
     {
       path: CONST.PATH.USER.HOME.SELF,
