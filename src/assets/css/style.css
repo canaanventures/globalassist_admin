@@ -3484,3 +3484,17 @@ ul.chat-available-user li a:hover {
 #copyrights a {
   color: #fff;
 }
+.datagird table tbody tr.dx-header-row td
+{
+text-align: left !important;
+}
+
+tr.dx-row.dx-header-row {
+    background-color: #f7f7f8 !important;
+}
+
+.dx-header-row .dx-editor-cell .dx-select-checkbox {
+    margin: auto 0;
+    width: 100%;
+    text-align: center;
+}

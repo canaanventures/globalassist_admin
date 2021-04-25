@@ -1,1 +1,36 @@
-<p>report-approval works!</p>
+<section class="wrapper">
+    <div class="row mt">
+        <div class="col-lg-12">
+            <div class="form-panel">
+                <h4>Report Approval</h4>
+                <hr>
+                <div class=" form">
+                    <dx-data-grid id="gridContainer" [dataSource]="ReportList" [showBorders]="true"
+                        [remoteOperations]="true">
+                        <dxo-filter-row [visible]="true"></dxo-filter-row>
+                        <dxo-paging [pageSize]="10"></dxo-paging>
+                        <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10, 20, 30]"></dxo-pager>
+                        <dxi-column dataField="FirstName" dataType="string">
+                        </dxi-column>
+                        <dxi-column dataField="LastName" dataType="string">
+                        </dxi-column>
+                        <dxi-column dataField="EmailId" dataType="string">
+                        </dxi-column>
+                        <dxi-column dataField="PhoneNo" dataType="string">
+                        </dxi-column>
+                        <dxi-column dataField="Gender" dataType="string">
+                        </dxi-column>
+                        <dxi-column dataField="Age" dataType="string">
+                        </dxi-column>
+                        <dxi-column dataField="Address" dataType="string">
+                        </dxi-column>
+                        <dxi-column dataField="State" dataType="string">
+                        </dxi-column>
+                        <dxi-column dataField="City" dataType="string">
+                        </dxi-column>
+                    </dx-data-grid>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

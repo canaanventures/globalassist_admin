@@ -4,6 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from "ngx-toastr";
+import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
 
 /* [ Shared Module ] */
 import { AppSharedModule } from '../../shared/app.shared.module';
@@ -109,6 +110,7 @@ const routes: Routes = [{
     ReactiveFormsModule,
     HttpClientModule,
     AppSharedModule,
+    DxDataGridModule,
     ToastrModule.forRoot(),
     RouterModule.forChild(routes),
   ],
