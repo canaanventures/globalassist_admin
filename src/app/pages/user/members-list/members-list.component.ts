@@ -13,6 +13,7 @@ import { UserComponent } from 'src/app/modules/user/user.component';
 export class MembersListComponent extends UserComponent implements OnInit {
   MemberList: Array<any> = [];
   CommonApi: any;
+  user: any = JSON.parse(sessionStorage.getItem('globalassist'));
   constructor(
     activatedRoute: ActivatedRoute,
     router: Router,
@@ -33,6 +34,14 @@ export class MembersListComponent extends UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.spinner.show();
+    this.ApiService.getAll('/user/getusers', { OperationId: this.user.RoleId == 3 ? 4 : 1, PostedBy: this.user.Id, CoordinatorId: this.user.Id }).subscribe(response => {
+      if (!(response as any).isSuccess)
+        this.toastr.error((response as any).message);
+      else
+        this.MemberList = response.data;
+      this.spinner.hide();
+    })
   }
 
   downloadCVV(fileName) {

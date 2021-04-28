@@ -10,24 +10,33 @@
                         <dxo-filter-row [visible]="true"></dxo-filter-row>
                         <dxo-paging [pageSize]="10"></dxo-paging>
                         <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10, 20, 30]"></dxo-pager>
-                        <dxi-column dataField="FirstName" dataType="string">
+                        <dxi-column caption="S.No" width="70" [allowFiltering]="false" [allowSorting]="false"
+                            cellTemplate="cellTemplate1" ></dxi-column>
+                        <dxi-column dataField="AppMonth" caption="Month" dataType="string" >
                         </dxi-column>
-                        <dxi-column dataField="LastName" dataType="string">
+                        <dxi-column dataField="ReportedBy" caption="Submitted By" dataType="string" >
                         </dxi-column>
-                        <dxi-column dataField="EmailId" dataType="string">
+                        <dxi-column dataField="OrgName" caption="Organization" dataType="string" >
                         </dxi-column>
-                        <dxi-column dataField="PhoneNo" dataType="string">
+                        <dxi-column dataField="Coordinator" dataType="string" >
                         </dxi-column>
-                        <dxi-column dataField="Gender" dataType="string">
+                        <dxi-column dataField="Supervisor" dataType="string" >
                         </dxi-column>
-                        <dxi-column dataField="Age" dataType="string">
+                        <dxi-column dataField="PostedOn" dataType="date" >
                         </dxi-column>
-                        <dxi-column dataField="Address" dataType="string">
-                        </dxi-column>
-                        <dxi-column dataField="State" dataType="string">
-                        </dxi-column>
-                        <dxi-column dataField="City" dataType="string">
-                        </dxi-column>
+                        <dxi-column caption="Action" [allowFiltering]="false" alignment="center" [allowSorting]="false"
+                            cellTemplate="cellTemplate" ></dxi-column>
+                        <div *dxTemplate="let data of 'cellTemplate'">
+                            <i class="fas fa-info-circle" style="color: #3f51b5;" title="Info"
+                                (click)="Action(data,'info')"></i>
+                            <i class="fas fa-thumbs-up" title="Approve" style="color: #4caf50;"
+                                (click)="Action(data,'approve')"></i>
+                            <i class="fas fa-thumbs-down" title="Reject" style="color: #f06033;"
+                                (click)="Action(data,'reject')"></i>
+                        </div>
+                        <div *dxTemplate="let data of 'cellTemplate1'">
+                            <div>{{data.row.rowIndex + 1}}</div>
+                        </div>
                     </dx-data-grid>
                 </div>
             </div>

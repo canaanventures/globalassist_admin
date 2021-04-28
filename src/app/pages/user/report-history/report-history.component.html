@@ -10,24 +10,36 @@
                         <dxo-filter-row [visible]="true"></dxo-filter-row>
                         <dxo-paging [pageSize]="10"></dxo-paging>
                         <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10, 20, 30]"></dxo-pager>
-                        <dxi-column dataField="FirstName" dataType="string">
+                        <dxi-column dataField="OrgName" caption="Organization" dataType="string">
                         </dxi-column>
-                        <dxi-column dataField="LastName" dataType="string">
+                        <dxi-column dataField="AppMonth" dataType="string">
                         </dxi-column>
-                        <dxi-column dataField="EmailId" dataType="string">
+                        <dxi-column dataField="NoOfVillages" dataType="string">
                         </dxi-column>
-                        <dxi-column dataField="PhoneNo" dataType="string">
+                        <dxi-column dataField="NoOfPersonHeard" dataType="string">
                         </dxi-column>
-                        <dxi-column dataField="Gender" dataType="string">
+                        <dxi-column dataField="NoOfVolunteers" dataType="string">
                         </dxi-column>
-                        <dxi-column dataField="Age" dataType="string">
+                        <dxi-column dataField="NoOfSocialProjects" dataType="string">
                         </dxi-column>
-                        <dxi-column dataField="Address" dataType="string">
+                        <dxi-column dataField="SupervisorApproval" [allowFiltering]="false" [allowSorting]="false"
+                            dataType="boolean">
                         </dxi-column>
-                        <dxi-column dataField="State" dataType="string">
+                        <dxi-column dataField="CoordinatorApproval" [allowFiltering]="false" [allowSorting]="false"
+                            dataType="boolean">
                         </dxi-column>
-                        <dxi-column dataField="City" dataType="string">
+                        <dxi-column dataField="PostedOn" dataType="date">
                         </dxi-column>
+                        <dxi-column caption="Action" [allowFiltering]="false" [allowSorting]="false"
+                            cellTemplate="cellTemplate"></dxi-column>
+                        <div *dxTemplate="let data of 'cellTemplate'">
+                            <i class="fas fa-info-circle" style="color: #3f51b5;" title="Info"
+                                (click)="Action(data,'info')"></i>
+                            <i class="fas fa-edit" title="Edit" style="color: #f06033;"
+                                (click)="Action(data,'edit')"></i>
+                            <i class="fas fa-redo" title="Repost" style="color: #4caf50;"
+                                (click)="Action(data,'repost')"></i>
+                        </div>
                     </dx-data-grid>
                 </div>
             </div>

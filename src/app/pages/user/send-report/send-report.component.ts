@@ -16,6 +16,7 @@ export class SendReportComponent extends UserComponent implements OnInit {
   reportForm: FormGroup;
   isSubmitted: boolean = false;
   user: any = JSON.parse(sessionStorage.getItem('globalassist'));
+  isReadyOnly: Boolean = false;
   constructor(
     activatedRoute: ActivatedRoute,
     router: Router,
@@ -74,6 +75,15 @@ export class SendReportComponent extends UserComponent implements OnInit {
       SupervisorRemarks: new FormControl("", []),
       CoordinatorRemarks: new FormControl("", [])
     });
+    if (sessionStorage.getItem('readonly') && sessionStorage.getItem('readonly') != null && (sessionStorage.getItem('readonly') == 'true')) {
+      this.isReadyOnly = true;
+      this.reportForm.disable();
+    }
+  }
+
+  ngOnDestroy() {
+    sessionStorage.removeItem('reportId');
+    sessionStorage.removeItem('readonly');
   }
 
   setFormValue(response) {
@@ -115,6 +125,8 @@ export class SendReportComponent extends UserComponent implements OnInit {
       this.ApiService.create('/report/submitreport', this.reportForm.value).subscribe(response => {
         if ((response as any).isSuccess) {
           this.reportForm.reset();
+          sessionStorage.removeItem('reportId');
+          sessionStorage.removeItem('readonly');
           this.toastr.success(response.message);
           this.spinner.hide();
         }

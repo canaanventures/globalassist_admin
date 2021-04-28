@@ -10,29 +10,28 @@
                         <dxo-filter-row [visible]="true"></dxo-filter-row>
                         <dxo-paging [pageSize]="10"></dxo-paging>
                         <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10, 20, 30]"></dxo-pager>
+                        <dxi-column dataField="Salutations" dataType="string">
+                        </dxi-column>
                         <dxi-column dataField="FirstName" dataType="string">
                         </dxi-column>
                         <dxi-column dataField="LastName" dataType="string">
+                        </dxi-column>
+                        <dxi-column dataField="Rolename" caption="Role" dataType="string">
                         </dxi-column>
                         <dxi-column dataField="EmailId" dataType="string">
                         </dxi-column>
                         <dxi-column dataField="PhoneNo" dataType="string">
                         </dxi-column>
-                        <dxi-column dataField="Gender" dataType="string">
-                        </dxi-column>
-                        <dxi-column dataField="Age" dataType="string">
-                        </dxi-column>
-                        <dxi-column dataField="Address" dataType="string">
-                        </dxi-column>
                         <dxi-column dataField="State" dataType="string">
                         </dxi-column>
-                        <dxi-column dataField="City" dataType="string">
+                        <dxi-column dataField="Country" dataType="string">
                         </dxi-column>
-                        <dxi-column dataField="CVVPath" caption="Download CVV" [allowFiltering]="false"
-                            [allowSorting]="false" cellTemplate="cellTemplate"></dxi-column>
-                        <div *dxTemplate="let data of 'cellTemplate'">
-                            <i class="fas fa-file-pdf" (click)="downloadCVV(data.value)"></i>
-                        </div>
+                        <dxi-column dataField="Coordinator" dataType="string" alignment="center">
+                        </dxi-column>
+                        <dxi-column dataField="Supervisor" dataType="string" alignment="center">
+                        </dxi-column>
+                        <dxi-column dataField="isActive" dataType="boolean">
+                        </dxi-column>
                     </dx-data-grid>
                 </div>
             </div>

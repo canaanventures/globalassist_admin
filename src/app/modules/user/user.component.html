@@ -23,8 +23,8 @@
                         <li (click)="Openpage('reportapproval')">Report Approval</li>
                     </ul>
                 </li>
-                <li class="" (click)="Openpage('sendreport')"><i class="far fa-file-alt"></i>&nbsp; Send Report</li>
-                <li class="" (click)="Openpage('reporthistory')"><i class="fa fa-book"></i>Report History</li>
+                <li *ngIf="user.RoleId == 5" (click)="Openpage('sendreport')"><i class="far fa-file-alt"></i>&nbsp; Send Report</li>
+                <li *ngIf="user.RoleId == 5"(click)="Openpage('reporthistory')"><i class="fa fa-book"></i>Report History</li>
                 <li (click)="Openpage('dashboard')"><i class="fas fa-tachometer-alt"></i> &nbsp; Dashboard</li>
                 <li (click)="Openpage('logout')"><i class="fas fa-sign-out-alt"></i> &nbsp; Logout</li>
             </ul>

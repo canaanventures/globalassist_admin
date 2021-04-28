@@ -13,6 +13,7 @@ import { UserComponent } from 'src/app/modules/user/user.component';
 })
 export class ReportHistoryComponent extends UserComponent implements OnInit {
   ReportList: Array<any> = [];
+  user: any = JSON.parse(sessionStorage.getItem('globalassist'));
   constructor(
     activatedRoute: ActivatedRoute,
     router: Router,
@@ -32,6 +33,30 @@ export class ReportHistoryComponent extends UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.spinner.show();
+    this.ApiService.getAll('/report/getreports', { OperationId: 3, PostedBy: this.user.Id }).subscribe(response => {
+      if (!(response as any).isSuccess)
+        this.toastr.error((response as any).message);
+      else
+        this.ReportList = response.data;
+      this.spinner.hide();
+    })
+  }
+
+  Action(report, action) {
+    if (action == 'info') {
+      sessionStorage.setItem('reportId', report.data.Id);
+      sessionStorage.setItem("readonly", 'true');
+      this.router.navigateByUrl('/sendreport');
+    }
+    else if (action == 'edit') {
+      sessionStorage.setItem('reportId', report.data.Id);
+      sessionStorage.setItem("readonly", 'false');
+      this.router.navigateByUrl('/sendreport');
+    }
+    else {
+
+    }
   }
 
 }

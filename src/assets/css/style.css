@@ -3493,3 +3493,9 @@ tr.dx-row.dx-header-row {
     width: 100%;
     text-align: center;
 }
+
+.dx-checkbox.dx-state-readonly .dx-checkbox-icon {
+    border-color: #373333 !important;
+    background-color: #fff;
+}
+
