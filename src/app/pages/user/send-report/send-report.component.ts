@@ -15,6 +15,7 @@ import * as moment from 'moment';
 export class SendReportComponent extends UserComponent implements OnInit {
   reportForm: FormGroup;
   isSubmitted: boolean = false;
+  user: any = JSON.parse(sessionStorage.getItem('globalassist'));
   constructor(
     activatedRoute: ActivatedRoute,
     router: Router,
@@ -31,19 +32,32 @@ export class SendReportComponent extends UserComponent implements OnInit {
       spinner,
       toastr
     );
+    if (sessionStorage.getItem('reportId') && sessionStorage.getItem('reportId') != null)
+      this.getReportById(sessionStorage.getItem('reportId'));
+  }
+
+  getReportById(reportId) {
+    this.spinner.show();
+    this.ApiService.getAll('/report/getreports', { OperationId: 2, ReportId: reportId }).subscribe(response => {
+      if (!(response as any).isSuccess)
+        this.toastr.error((response as any).message);
+      else
+        this.setFormValue(response.data[0])
+      this.spinner.hide();
+    })
   }
 
 
   ngOnInit(): void {
     this.reportForm = new FormGroup({
       Id: new FormControl(0, [Validators.required]),
-      UserId: new FormControl("", [Validators.required]),
-      AppMonth: new FormControl("", [Validators.required]),
+      UserId: new FormControl(this.user.Id, [Validators.required]),
+      AppMonth: new FormControl(moment(new Date()).format('MMMM YYYY'), [Validators.required]),
       NoOfVillages: new FormControl("", [Validators.required]),
-      NoOfPersonHeard: new FormControl("", [Validators.required]),
-      NoOfMen: new FormControl("", [Validators.required]),
-      NoOfWomen: new FormControl("", [Validators.required]),
-      NoOfChildren: new FormControl("", [Validators.required]),
+      NoOfPersonHeard: new FormControl(0, [Validators.required]),
+      NoOfMen: new FormControl(0, [Validators.required]),
+      NoOfWomen: new FormControl(0, [Validators.required]),
+      NoOfChildren: new FormControl(0, [Validators.required]),
       NoOfNewGroup: new FormControl("", [Validators.required]),
       NoOfLevel1Leader: new FormControl("", [Validators.required]),
       NoOfLevel2Leader: new FormControl("", [Validators.required]),
@@ -84,17 +98,23 @@ export class SendReportComponent extends UserComponent implements OnInit {
       ConcernPoints: response.ConcernPoints,
       isPhotoShared: response.isPhotoShared,
       isVideoShared: response.isVideoShared,
-      SupervisorRemarks: response.isVideoShared,
-      CoordinatorRemarks: response.isVideoShared
+      SupervisorRemarks: response.SupervisorRemarks == null ? '' : response.SupervisorRemarks,
+      CoordinatorRemarks: response.CoordinatorRemarks == null ? '' : response.CoordinatorRemarks
     })
+  }
+
+  getPersonHeard() {
+    let number = parseInt(this.reportForm.value.NoOfMen) + parseInt(this.reportForm.value.NoOfWomen) + parseInt(this.reportForm.value.NoOfChildren);
+    this.reportForm.patchValue({ NoOfPersonHeard: number });
   }
 
   onReportSubmit() {
     this.isSubmitted = true;
     if (this.reportForm.valid) {
       this.spinner.show();
-      this.ApiService.getAll('/auth/login', this.reportForm.value).subscribe(response => {
+      this.ApiService.create('/report/submitreport', this.reportForm.value).subscribe(response => {
         if ((response as any).isSuccess) {
+          this.reportForm.reset();
           this.toastr.success(response.message);
           this.spinner.hide();
         }

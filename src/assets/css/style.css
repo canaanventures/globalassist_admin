@@ -184,6 +184,10 @@ hr {
     color: #d71e1e;
 }
 
+.colred {
+    color: #f44336;
+}
+
 .no-padding {
     padding: 0 !important;
 }
