@@ -19,7 +19,10 @@ import { MembersListComponent } from 'src/app/pages/user/members-list/members-li
 import { ReportApprovalComponent } from 'src/app/pages/user/report-approval/report-approval.component';
 import { ReportHistoryComponent } from 'src/app/pages/user/report-history/report-history.component';
 import { SendReportComponent } from 'src/app/pages/user/send-report/send-report.component';
-
+let user = JSON.parse(sessionStorage.getItem('globalassist'));
+let path = '/login';
+if (user && user !== null)
+  path = '/profile';
 
 const routes: Routes = [{
   path: '',
@@ -31,7 +34,7 @@ const routes: Routes = [{
     {
       path: '',
       pathMatch: 'full',
-      redirectTo: 'profile'
+      redirectTo: path
     },
     {
       path: CONST.PATH.USER.HOME.SELF,

@@ -16,11 +16,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './components/login/login.component';
+let user = JSON.parse(sessionStorage.getItem('globalassist'));
 
-const routes: Routes = [{
-  path: CONST.PATH.LOGIN.SELF,
-  component: LoginComponent
-}];
+const routes: Routes = [
+  {
+    path: CONST.PATH.LOGIN.SELF,
+    component: LoginComponent
+  }];
 @NgModule({
   declarations: [
     AppComponent,

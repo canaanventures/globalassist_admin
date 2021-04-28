@@ -11,14 +11,15 @@
         <p class="centered">
             <a href="profile.html"><img src="assets/img/ui-sam.jpg" class="img-circle" width="80"></a>
         </p>
-        <h5 class="centered">Rajesh Pagare</h5>
+        <h5 class="centered">{{user.FirstName}}&nbsp;{{user.LastName}}</h5>
         <nav class='animated bounceInDown'>
             <ul>
                 <li class=" active" (click)="Openpage('profile')"><i class="fa fa-book"></i>Profile</li>
-                <li id="sub-menu" class='sub-menu' (click)="submenu($event)"><i class="fa fa-desktop"></i>Contact
+                <li *ngIf="user.RoleId !=5" id="sub-menu" class='sub-menu' (click)="submenu($event)"><i
+                        class="fa fa-desktop"></i>Contact
                     <ul class="sub-item">
-                        <li (click)="Openpage('member-list')">Member List</li>
-                        <li (click)="Openpage('add-member')">Add Member</li>
+                        <li *ngIf="user.RoleId != 4" (click)="Openpage('member-list')">Member List</li>
+                        <li *ngIf="user.RoleId != 4" (click)="Openpage('add-member')">Add Member</li>
                         <li (click)="Openpage('reportapproval')">Report Approval</li>
                     </ul>
                 </li>
@@ -45,7 +46,7 @@
                     <li class="dropdown">
                         <span class="dropdown-toggle" data-toggle="dropdown">
                             <span class="glyphicon glyphicon-user"></span> 
-                            <strong>Saran (Manager)</strong> &nbsp;
+                            <strong>{{user.FirstName}} ({{user.Rolename}})</strong> &nbsp;
                             <span class="glyphicon glyphicon-chevron-down"></span>
                         </span>
                         <ul class="dropdown-menu">
@@ -56,8 +57,10 @@
                                             <img style="width: 108px;margin-top: 7px;" src="assets/img/ui-sam.jpg">
                                         </div>
                                         <div class="col-lg-8">
-                                            <p class="text-left"><strong>Saran Vaithiyanathan</strong></p>
-                                            <p class="text-left small">saran@vecan.co</p>
+                                            <p class="text-left">
+                                                <strong>{{user.FirstName}}&nbsp;{{user.LastName}}</strong>
+                                            </p>
+                                            <p class="text-left small">{{user.EmailId}}</p>
                                             <p class="text-left">
                                                 <span (click)="Openpage('logout')"
                                                     class="dropbtn btn-primary btn-block btn-sm">Logout</span>
@@ -82,8 +85,6 @@
                         </ul>
                     </li>
                 </ul>
-
-
             </div>
         </header>
         <section class="demo-contents">

@@ -12,6 +12,7 @@ import * as $ from 'jquery';
   styleUrls: ['./user.component.scss']
 })
 export class UserComponent extends AppComponent implements OnInit {
+  user: any = JSON.parse(sessionStorage.getItem('globalassist'));
   _opened: boolean = true;
   slide: string = 'push';
   isMobile: boolean = false;
@@ -76,8 +77,11 @@ export class UserComponent extends AppComponent implements OnInit {
       this.router.navigateByUrl('/sendreport');
     else if (page == 'dashboard')
       this.router.navigateByUrl('/login');
-    else if (page == 'logout')
+    else if (page == 'logout') {
+      sessionStorage.removeItem('globalassist');
+      sessionStorage.removeItem('roleId');
       this.router.navigateByUrl('/login');
+    }
   }
 
 }
