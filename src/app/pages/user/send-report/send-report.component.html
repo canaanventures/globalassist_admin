@@ -221,23 +221,30 @@
                             <div *ngIf="user.RoleId == 3 || reportForm.value.Id != 0">
                                 <label for="cemail" class="control-label col-lg-2">Coordinator Remarks</label>
                                 <div class="col-lg-4">
-                                    <textarea class=" form-control" id="cname" name="name" rows="3" cols="50"
+                                    <textarea class="form-control" id="cremarks" name="cremarks" rows="3" cols="50"
                                         formControlName="CoordinatorRemarks"></textarea>
                                 </div>
-                            </div>  
+                            </div>
                             <div *ngIf="user.RoleId == 4 || reportForm.value.Id != 0">
                                 <label for="cemail" class="control-label col-lg-2">Supervisor Remarks</label>
                                 <div class="col-lg-4">
-                                    <textarea class=" form-control" id="cname" name="name" rows="3" cols="50"
+                                    <textarea class=" form-control" id="sremarks" name="sremarks" rows="3" cols="50"
                                         formControlName="SupervisorRemarks"></textarea>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="form-group">
+                        <div class="form-group" *ngIf="!isReadyOnly">
                             <div class="col-lg-offset-2 col-lg-6">
                                 <button class="btn btn-theme">Save</button>
-                                <button class="btn btn-theme04">Cancel</button>
+                            </div>
+                        </div>
+                        <div class="form-group" *ngIf="isReadyOnly && (user.RoleId == 3 || user.RoleId == 4)">
+                            <div class="col-lg-offset-2 col-lg-6">
+                                <button class="btn btn-theme" type="button"
+                                    (click)="reportAction('approve')">Approve</button>
+                                <button class="btn btn-theme04" type="button"
+                                    (click)="reportAction('reject')">Reject</button>
                             </div>
                         </div>
                     </form>

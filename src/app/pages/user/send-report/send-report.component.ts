@@ -78,6 +78,15 @@ export class SendReportComponent extends UserComponent implements OnInit {
     if (sessionStorage.getItem('readonly') && sessionStorage.getItem('readonly') != null && (sessionStorage.getItem('readonly') == 'true')) {
       this.isReadyOnly = true;
       this.reportForm.disable();
+      let control: any;
+      if (sessionStorage.getItem('roleId') == "3") {
+        control = this.reportForm.get('CoordinatorRemarks');
+        control.disabled ? control.enable() : control.disable();
+      }
+      else if (sessionStorage.getItem('roleId') == "4") {
+        control = this.reportForm.get('SupervisorRemarks');
+        control.disabled ? control.enable() : control.disable();
+      }
     }
   }
 
@@ -124,6 +133,7 @@ export class SendReportComponent extends UserComponent implements OnInit {
       this.spinner.show();
       this.ApiService.create('/report/submitreport', this.reportForm.value).subscribe(response => {
         if ((response as any).isSuccess) {
+          this.isSubmitted = false;
           this.reportForm.reset();
           sessionStorage.removeItem('reportId');
           sessionStorage.removeItem('readonly');
@@ -136,6 +146,19 @@ export class SendReportComponent extends UserComponent implements OnInit {
         }
       })
     }
+  }
+
+  reportAction(action) {
+    this.spinner.show();
+    this.ApiService.create('/report/approvereport', { RoleId: this.user.RoleId, ReportId: this.reportForm.get('Id').value, userId: this.user.Id, isApproved: action == 'approve' ? true : false, Remarks: this.user.RoleId == '3' ? this.reportForm.value.CoordinatorRemarks : this.reportForm.value.SupervisorRemarks }).subscribe(response => {
+      if ((response as any).isSuccess) {
+        this.toastr.success((response as any).message);
+        this.router.navigateByUrl('/reportapproval')
+      }
+      else
+        this.toastr.error((response as any).message);
+      this.spinner.hide();
+    })
   }
 
 }

@@ -41,4 +41,24 @@ export class ReportApprovalComponent extends UserComponent implements OnInit {
     })
   }
 
+  Action(report, action) {
+    if (action == 'info') {
+      sessionStorage.setItem('reportId', report.data.Id);
+      sessionStorage.setItem("readonly", 'true');
+      this.router.navigateByUrl('/sendreport');
+    }
+    else {
+      this.spinner.show();
+      this.ApiService.create('/report/approvereport', { RoleId: this.user.RoleId, ReportId: report.data.Id, isApproved: action == 'approve' ? true : false, Remarks: '', userId: this.user.Id }).subscribe(response => {
+        if ((response as any).isSuccess) {
+          this.toastr.success((response as any).message);
+          this.ReportList = response.data;
+        }
+        else
+          this.toastr.error((response as any).message);
+        this.spinner.hide();
+      })
+    }
+  }
+
 }

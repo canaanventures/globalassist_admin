@@ -5,74 +5,146 @@
                 <h4>Add Members</h4>
                 <hr>
                 <div class=" form">
-                    <form class="cmxform form-horizontal style-form" id="commentForm" method="get" action="">
+                    <form class="cmxform form-horizontal style-form" id="commentForm" [formGroup]="addMemberForm"
+                        (ngSubmit)="onFormSubmit()" novalidate>
                         <div class="form-group ">
-                            <label for="cname" class="control-label col-lg-2">Organization Name</label>
+                            <label for="cname" class="control-label col-lg-2">User Type <span class="colred">
+                                    *</span></label>
                             <div class="col-lg-4">
-                                <input class="form-control" id="disabledInput" type="text" placeholder="Red Cross"
-                                    disabled />
+                                <div class="select">
+                                    <select formControlName="RoleId">
+                                        <option *ngIf="user.RoleId == 1" value="1">Manager</option>
+                                        <option *ngIf="user.RoleId == 1" value="2">Sponser</option>
+                                        <option *ngIf="user.RoleId == 1" value="3">Coordinator</option>
+                                        <option value="4">Supervisor</option>
+                                        <option value="5">Field Officer</option>
+                                    </select>
+                                </div>
                             </div>
-                            <label for="cname" class="control-label col-lg-2">Co-ordinator</label>
+                            <div *ngIf="addMemberForm.value.RoleId > 2">
+                                <label for="cname" class="control-label col-lg-2">Organization Name <span
+                                        class="colred">
+                                        *</span></label>
+                                <div class="col-lg-4">
+                                    <div class="select">
+                                        <select (change)="onOrganizationChange($event.target.value)"
+                                            formControlName="OrgId">
+                                            <option value="">Select Organization</option>
+                                            <option value="{{org.id}}" *ngFor="let org of organizationList">{{org.name}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="addMemberForm.value.RoleId > 3">
+                                <label for="cname" class="control-label col-lg-2">Co-ordinator <span class="colred">
+                                        *</span></label>
+                                <div class="col-lg-4">
+                                    <div class="select">
+                                        <select formControlName="CoordinatorId">
+                                            <option value="">Select Coordinator</option>
+                                            <option value="{{coordinate.Id}}"
+                                                *ngFor="let coordinate of CoordinatorList">
+                                                {{coordinate.FirstName}}&nbsp;{{coordinate.LastName}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div *ngIf="addMemberForm.value.RoleId == 5">
+                                <label for="cname" class="control-label col-lg-2">Supervisor <span class="colred">
+                                        *</span></label>
+                                <div class="col-lg-4">
+                                    <div class="select">
+                                        <select formControlName="SupervisorId">
+                                            <option value="">Select Supervisor</option>
+                                            <option value="{{supervisor.id}}" *ngFor="let supervisor of SupervisorList">
+                                                {{supervisor.FirstName}}&nbsp;{{supervisor.LastName}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group ">
+                            <label for="cname" class="control-label col-lg-2">Salutations <span class="colred">
+                                    *</span></label>
                             <div class="col-lg-4">
-                                <input class="form-control" id="disabledInput" type="text" placeholder="Vivek Kale"
-                                    disabled />
+                                <div class="select">
+                                    <select formControlName="Salutations">
+                                        <option value="Mr.">Mr.</option>
+                                        <option value="Ms.">Ms.</option>
+                                        <option value="Mrs.">Mrs.</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <label for="cname" class="control-label col-lg-2">First Name <span class="colred">
+                                    *</span></label>
+                            <div class="col-lg-4">
+                                <input class=" form-control" id="cname" name="name" type="text"
+                                    formControlName="FirstName" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && addMemberForm.controls.FirstName.errors?.required">
+                                    Firstname is required.
+                                </span>
+                            </div>
+                            <label for="cemail" class="control-label col-lg-2">Last Name <span class="colred">
+                                    *</span></label>
+                            <div class="col-lg-4">
+                                <input class="form-control" id="cname" name="name" type="text"
+                                    formControlName="LastName" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && addMemberForm.controls.LastName.errors?.required">
+                                    Lastname is required.
+                                </span>
                             </div>
                         </div>
                         <div class="form-group ">
-                            <label for="cname" class="control-label col-lg-2">Supervisor</label>
+                            <label for="cemail" class="control-label col-lg-2">E-Mail <span class="colred">
+                                    *</span></label>
                             <div class="col-lg-4">
-                                <input class="form-control" id="disabledInput" type="text" placeholder="Rajesh Pagare"
-                                    disabled />
+                                <input class="form-control " id="cemail" type="email" name="email"
+                                    formControlName="EmailId" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && addMemberForm.controls.EmailId.errors?.required">
+                                    Email Id is required.
+                                </span>
+                            </div>
+                            <label for="cemail" class="control-label col-lg-2">Phone Number <span class="colred">
+                                    *</span></label>
+                            <div class="col-lg-4">
+                                <input class="form-control" id="cname" name="name" type="text"
+                                    formControlName="PhoneNo" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && addMemberForm.controls.PhoneNo.errors?.required">
+                                    Phone no is required.
+                                </span>
                             </div>
                         </div>
-                        <div class="form-group ">
-                            <label for="cname" class="control-label col-lg-2">First Name (required)</label>
+                        <div class="form-group " *ngIf="addMemberForm.value.RoleId > 2">
+                            <label for="cname" class="control-label col-lg-2">Address</label>
                             <div class="col-lg-4">
-                                <input class=" form-control" id="cname" name="name" minlength="2" type="text"
-                                    required />
+                                <textarea class=" form-control" id="cname" name="name" type="text"
+                                    formControlName="Address"></textarea>
                             </div>
-                            <label for="cname" class="control-label col-lg-2">Title</label>
-                            <div class="col-lg-4">
-                                <input class=" form-control" id="cname" name="name" minlength="2" type="text"
-                                    required />
-                            </div>
-                        </div>
-                        <div class="form-group ">
-                            <label for="cemail" class="control-label col-lg-2">Last Name</label>
-                            <div class="col-lg-4">
-                                <input class="form-control" id="cname" name="name" minlength="2" type="text" required />
-                            </div>
-                            <label for="cemail" class="control-label col-lg-2">Phone Number</label>
-                            <div class="col-lg-4">
-                                <input class="form-control" id="cname" name="name" minlength="2" type="text" required />
-                            </div>
-                        </div>
-                        <div class="form-group ">
                             <label for="cname" class="control-label col-lg-2">State</label>
                             <div class="col-lg-4">
-                                <input class=" form-control" id="cname" name="name" minlength="2" type="text"
-                                    required />
+                                <input class=" form-control" id="cname" name="name" type="text"
+                                    formControlName="State" />
                             </div>
                             <label for="cname" class="control-label col-lg-2">Pincode</label>
                             <div class="col-lg-4">
-                                <input class=" form-control" id="cname" name="name" minlength="2" type="text"
-                                    required />
+                                <input class=" form-control" id="cname" name="name" type="text"
+                                    formControlName="Pincode" />
                             </div>
-                        </div>
-                        <div class="form-group ">
                             <label for="cname" class="control-label col-lg-2">Country</label>
                             <div class="col-lg-4">
-                                <input class=" form-control" id="cname" name="name" minlength="2" type="text"
-                                    required />
+                                <input class=" form-control" id="cname" name="name" type="text"
+                                    formControlName="Country" />
                             </div>
                         </div>
-                        <div class="form-group ">
-                            <label for="cemail" class="control-label col-lg-2">E-Mail (required)</label>
-                            <div class="col-lg-6">
-                                <input class="form-control " id="cemail" type="email" name="email" required />
-                            </div>
-                        </div>
-                        <div class="form-group">
+                        <!-- <div class="form-group">
                             <label class="control-label col-md-3">Date</label>
                             <div class="col-md-4">
                                 <div data-date="2014-02-01T10:05:00Z" class="input-group date form_datetime-adv">
@@ -85,11 +157,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="form-group">
                             <div class="col-lg-offset-2 col-lg-6">
-                                <button class="btn btn-theme" type="submit">Save</button>
-                                <button class="btn btn-theme04" type="button">Cancel</button>
+                                <button class="btn btn-theme">Save</button>
                             </div>
                         </div>
                     </form>

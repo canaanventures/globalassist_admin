@@ -1,0 +1,10 @@
+.col-lg-4 {
+    padding: 10px;
+}
+
+.control-label {
+    padding-top: 17px;
+}
+option:disabled {
+    color: -internal-light-dark(graytext, rgb(170, 170, 170)) !important;
+}
