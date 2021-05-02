@@ -1,1 +1,112 @@
-<p>add-organization works!</p>
+<section class="wrapper">
+    <div class="row mt">
+        <div class="col-lg-12">
+            <div class="form-panel">
+                <h4>Add Organization</h4>
+                <hr>
+                <div class=" form">
+                    <form class="cmxform form-horizontal style-form" id="commentForm" [formGroup]="organizationForm"
+                        (ngSubmit)="onFormSubmit()" novalidate>
+                        <div class="form-group ">
+                            <div>
+                                <label for="cname" class="control-label col-lg-2">Organization Name <span
+                                        class="colred">
+                                        *</span></label>
+                                <div class="col-lg-4">
+                                    <input class=" form-control" id="cname" name="name" type="text"
+                                        formControlName="name" />
+                                    <span class="error-mess"
+                                        *ngIf="isSubmitted && organizationForm.controls.name.errors?.required">
+                                        Organization name is required.
+                                    </span>
+                                </div>
+                            </div>
+                            <label for="cemail" class="control-label col-lg-2">E-Mail <span class="colred">
+                                    *</span></label>
+                            <div class="col-lg-4">
+                                <input class="form-control " id="cemail" type="email" name="email"
+                                    formControlName="emailId" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && organizationForm.controls.emailId.errors?.required">
+                                    Email Id is required.
+                                </span>
+                            </div>
+                            <label for="cemail" class="control-label col-lg-2">Phone Number <span class="colred">
+                                    *</span></label>
+                            <div class="col-lg-4">
+                                <input class="form-control" id="cname" name="name" type="text"
+                                    formControlName="phoneNo" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && organizationForm.controls.phoneNo.errors?.required">
+                                    Phone no is required.
+                                </span>
+                            </div>
+                            <label for="cemail" class="control-label col-lg-2">Status <span class="colred">
+                                    *</span></label>
+                            <div class="col-lg-4">
+                                <div class="select">
+                                    <select formControlName="isActive">
+                                        <option value="true">Active</option>
+                                        <option value="false">InActive</option>
+                                    </select>
+                                </div>
+
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && organizationForm.controls.isActive.errors?.required">
+                                    Status is required.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group ">
+                            <label for="cname" class="control-label col-lg-2">Address <span class="colred">
+                                    *</span></label>
+                            <div class="col-lg-4">
+                                <textarea rows="7" cols="30" class=" form-control" id="cname" name="name" type="text"
+                                    formControlName="address"></textarea>
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && organizationForm.controls.address.errors?.required">
+                                    Address is required.
+                                </span>
+                            </div>
+                            <label for="cname" class="control-label col-lg-2">State <span class="colred">
+                                    *</span></label>
+                            <div class="col-lg-4">
+                                <input class=" form-control" id="cname" name="name" type="text"
+                                    formControlName="state" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && organizationForm.controls.state.errors?.required">
+                                    State is required.
+                                </span>
+                            </div>
+                            <label for="cname" class="control-label col-lg-2">City <span class="colred">
+                                    *</span></label>
+                            <div class="col-lg-4">
+                                <input class=" form-control" id="cname" name="name" type="text"
+                                    formControlName="city" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && organizationForm.controls.city.errors?.required">
+                                    City is required.
+                                </span>
+                            </div>
+                            <label for="cname" class="control-label col-lg-2">Country <span class="colred">
+                                    *</span></label>
+                            <div class="col-lg-4">
+                                <input class=" form-control" id="cname" name="name" type="text"
+                                    formControlName="country" />
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && organizationForm.controls.country.errors?.required">
+                                    Country is required.
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-group" *ngIf="!isReadyOnly">
+                            <div class="col-lg-offset-2 col-lg-6">
+                                <button class="btn btn-theme">Save</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

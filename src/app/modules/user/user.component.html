@@ -14,22 +14,25 @@
         <h5 class="centered">{{user.FirstName}}&nbsp;{{user.LastName}}</h5>
         <nav class='animated bounceInDown'>
             <ul>
-                <li class=" active" (click)="Openpage('profile')"><i class="fa fa-book"></i>Profile</li>
+                <li class="" id="profile" (click)="Openpage('profile')"><i class="fa fa-book"></i>Profile</li>
                 <li *ngIf="user.RoleId !=5 && user.RoleId !=2" id="sub-menu" class='sub-menu' (click)="submenu($event)">
                     <i class="fa fa-desktop"></i>Contact
                     <ul class="sub-item">
-                        <li *ngIf="user.RoleId != 4" (click)="Openpage('member-list')">Member List</li>
-                        <li *ngIf="user.RoleId != 4" (click)="Openpage('add-member')">Add Member</li>
-                        <li (click)="Openpage('org-list')">Organization List</li>
-                        <li (click)="Openpage('add-org')">Add Organization</li>
-                        <li (click)="Openpage('reportapproval')">Report Approval</li>
+                        <li id="memberlist" *ngIf="user.RoleId != 4" (click)="Openpage('member-list')">Member List</li>
+                        <li id="addmember" *ngIf="user.RoleId != 4" (click)="Openpage('add-member')">Add Member</li>
+                        <li *ngIf="user.RoleId == 1" id="orglist" (click)="Openpage('org-list')">Organization List</li>
+                        <li *ngIf="user.RoleId == 1" id="addorg" (click)="Openpage('add-org')">Add Organization</li>
+                        <li id="reportapproval" (click)="Openpage('reportapproval')">Report Approval</li>
                     </ul>
                 </li>
-                <li *ngIf="user.RoleId == 5" (click)="Openpage('sendreport')"><i class="far fa-file-alt"></i>&nbsp; Send
+                <li *ngIf="user.RoleId == 5" id="sendreport" (click)="Openpage('sendreport')"><i
+                        class="far fa-file-alt"></i>&nbsp; Send
                     Report</li>
-                <li *ngIf="user.RoleId == 5" (click)="Openpage('reporthistory')"><i class="fa fa-book"></i>Report
+                <li *ngIf="user.RoleId == 5" id="reporthistory" (click)="Openpage('reporthistory')"><i
+                        class="fa fa-book"></i>Report
                     History</li>
-                <li (click)="Openpage('dashboard')"><i class="fas fa-tachometer-alt"></i> &nbsp; Dashboard</li>
+                <li (click)="Openpage('dashboard')" id="dashboard"><i class="fas fa-tachometer-alt"></i> &nbsp;
+                    Dashboard</li>
                 <li (click)="Openpage('logout')"><i class="fas fa-sign-out-alt"></i> &nbsp; Logout</li>
             </ul>
         </nav>

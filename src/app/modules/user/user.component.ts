@@ -42,19 +42,27 @@ export class UserComponent extends AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    $('.sub-menu ul').hide();
   }
 
   ngAfterContentInit() {
-    var header: any = document.getElementsByClassName("animated")[0];
-    var btns = header.getElementsByTagName("li");
-    for (var i = 0; i < btns.length; i++) {
-      btns[i].addEventListener("click", function () {
-        var current = document.getElementsByClassName("active");
-        current[0].className = current[0].className.replace("active", "");
-        this.className += " active";
-      });
-    }
+    this.router.events.subscribe(event => {
+      if (event.constructor.name === "NavigationEnd") {
+        this.setActivePage();
+      }
+    })
+    // var header: any = document.getElementsByClassName("animated")[0];
+    // var btns = header.getElementsByTagName("li");
+    // for (var i = 0; i < btns.length; i++) {
+    //   btns[i].addEventListener("click", function () {
+    //     var current = document.getElementsByClassName("active");
+    //     current[0].className = current[0].className.replace("active", "");
+    //     this.className += " active";
+    //   });
+    // }
+  }
+  ngAfterViewChecked() {
+    this.setActivePage()
+    $('.sub-menu ul').hide();
   }
 
   submenu(e) {
@@ -85,6 +93,44 @@ export class UserComponent extends AppComponent implements OnInit {
       sessionStorage.removeItem('globalassist');
       sessionStorage.removeItem('roleId');
       this.router.navigateByUrl('/login');
+    }
+  }
+
+  setActivePage() {
+    var current = document.getElementsByClassName("active");
+    if (current.length > 0)
+      current[0].className = current[0].className.replace("active", "");
+    if (this.router.url.includes('profile')) {
+      var target = document.getElementById('profile')
+      target.className = ' active';
+    }
+    else if (this.router.url.includes('memberlist')) {
+      var target = document.getElementById('memberlist')
+      target.className = ' active';
+    }
+    else if (this.router.url.includes('addusers')) {
+      var target = document.getElementById('addmember')
+      target.className = ' active';
+    }
+    else if (this.router.url.includes('orglist')) {
+      var target = document.getElementById('orglist')
+      target.className = ' active';
+    }
+    else if (this.router.url.includes('addorg')) {
+      var target = document.getElementById('addorg')
+      target.className = ' active';
+    }
+    else if (this.router.url.includes('reportapproval')) {
+      var target = document.getElementById('reportapproval')
+      target.className = ' active';
+    }
+    else if (this.router.url.includes('sendreport')) {
+      var target = document.getElementById('sendreport')
+      target.className = ' active';
+    }
+    else if (this.router.url.includes('reporthistory')) {
+      var target = document.getElementById('reporthistory')
+      target.className = ' active';
     }
   }
 

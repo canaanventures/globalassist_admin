@@ -1,1 +1,45 @@
-<p>organization-list works!</p>
+<section class="wrapper">
+    <div class="row mt">
+        <div class="col-lg-12">
+            <div class="form-panel">
+                <h4>Organization List</h4>
+                <hr>
+                <div class=" form">
+                    <dx-data-grid id="gridContainer" [dataSource]="OrganizationList" [showBorders]="true"
+                        [remoteOperations]="true">
+                        <dxo-filter-row [visible]="true"></dxo-filter-row>
+                        <dxo-paging [pageSize]="10"></dxo-paging>
+                        <dxo-pager [showPageSizeSelector]="true" [allowedPageSizes]="[10, 20, 30]"></dxo-pager>
+                        <dxi-column caption="S.No" width="70" [allowFiltering]="false" [allowSorting]="false"
+                            cellTemplate="cellTemplate1"></dxi-column>
+                        <div *dxTemplate="let data of 'cellTemplate1'">
+                            <div>{{data.row.rowIndex + 1}}</div>
+                        </div>
+                        <dxi-column dataField="name" dataType="string">
+                        </dxi-column>
+                        <dxi-column dataField="emailId" dataType="string">
+                        </dxi-column>
+                        <dxi-column dataField="phoneNo" dataType="string">
+                        </dxi-column>
+                        <dxi-column dataField="city" dataType="string">
+                        </dxi-column>
+                        <dxi-column dataField="state" dataType="string">
+                        </dxi-column>
+                        <dxi-column dataField="country" dataType="string">
+                        </dxi-column>
+                        <dxi-column dataField="isActive" caption="Status" dataType="boolean">
+                        </dxi-column>
+                        <dxi-column caption="Action" [allowFiltering]="false" alignment="center" [allowSorting]="false"
+                            cellTemplate="cellTemplate"></dxi-column>
+                        <div *dxTemplate="let data of 'cellTemplate'">
+                            <i class="fas fa-info-circle" style="color: #3f51b5;" title="Info"
+                                (click)="Action(data,'info')"></i>
+                            <i class="fas fa-edit" title="Approve" style="color: #4caf50;"
+                                (click)="Action(data,'edit')"></i>
+                        </div>
+                    </dx-data-grid>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
