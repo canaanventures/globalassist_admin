@@ -16,8 +16,8 @@ import { CONST } from '../shared/app.constant';
 @Injectable()
 export class ApiService {
 
-  // api = 'http://172.107.175.10:3004'
-  api = 'http://localhost:3004'
+  api = 'https://globalassist-api.padahjobs.com'
+  // api = 'http://localhost:3004'
 
   _headers: HttpHeaders;
 

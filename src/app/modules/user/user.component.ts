@@ -62,7 +62,7 @@ export class UserComponent extends AppComponent implements OnInit {
   }
   ngAfterViewChecked() {
     this.setActivePage()
-    $('.sub-menu ul').hide();
+    // $('.sub-menu ul').hide();
   }
 
   submenu(e) {
