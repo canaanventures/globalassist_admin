@@ -19,6 +19,8 @@ import { MembersListComponent } from 'src/app/pages/user/members-list/members-li
 import { ReportApprovalComponent } from 'src/app/pages/user/report-approval/report-approval.component';
 import { ReportHistoryComponent } from 'src/app/pages/user/report-history/report-history.component';
 import { SendReportComponent } from 'src/app/pages/user/send-report/send-report.component';
+import { AddOrganizationComponent } from 'src/app/pages/user/add-organization/add-organization.component';
+import { OrganizationListComponent } from 'src/app/pages/user/organization-list/organization-list.component';
 let user = JSON.parse(sessionStorage.getItem('globalassist'));
 let path = '/login';
 if (user && user !== null)
@@ -72,6 +74,20 @@ const routes: Routes = [{
       }
     },
     {
+      path: CONST.PATH.USER.ADDORG.SELF,
+      component: AddOrganizationComponent,
+      data: {
+        title: CONST.PATH.USER.ADDORG.TITLE
+      }
+    },
+    {
+      path: CONST.PATH.USER.ORGLIST.SELF,
+      component: OrganizationListComponent,
+      data: {
+        title: CONST.PATH.USER.ORGLIST.TITLE
+      }
+    },
+    {
       path: CONST.PATH.USER.REPORTAPPROVAL.SELF,
       component: ReportApprovalComponent,
       data: {
@@ -105,7 +121,9 @@ const routes: Routes = [{
     MembersListComponent,
     ReportApprovalComponent,
     ReportHistoryComponent,
-    SendReportComponent
+    SendReportComponent,
+    AddOrganizationComponent,
+    OrganizationListComponent
   ],
   imports: [
     CommonModule,

@@ -34,6 +34,14 @@ export const CONST = Object.freeze({
         SELF: 'memberlist',
         TITLE: 'memberlist'
       },
+      ADDORG: {
+        SELF: 'addorg',
+        TITLE: 'addorg'
+      },
+      ORGLIST: {
+        SELF: 'orglist',
+        TITLE: 'orglist'
+      },
       REPORTAPPROVAL: {
         SELF: 'reportapproval',
         TITLE: 'reportapproval'

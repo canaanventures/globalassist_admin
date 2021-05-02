@@ -77,6 +77,10 @@ export class UserComponent extends AppComponent implements OnInit {
       this.router.navigateByUrl('/sendreport');
     else if (page == 'dashboard')
       this.router.navigateByUrl('/login');
+    else if (page == 'add-org')
+      this.router.navigateByUrl('/addorg');
+    else if (page == 'org-list')
+      this.router.navigateByUrl('/orglist');
     else if (page == 'logout') {
       sessionStorage.removeItem('globalassist');
       sessionStorage.removeItem('roleId');

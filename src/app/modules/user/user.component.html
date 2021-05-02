@@ -20,6 +20,8 @@
                     <ul class="sub-item">
                         <li *ngIf="user.RoleId != 4" (click)="Openpage('member-list')">Member List</li>
                         <li *ngIf="user.RoleId != 4" (click)="Openpage('add-member')">Add Member</li>
+                        <li (click)="Openpage('org-list')">Organization List</li>
+                        <li (click)="Openpage('add-org')">Add Organization</li>
                         <li (click)="Openpage('reportapproval')">Report Approval</li>
                     </ul>
                 </li>
