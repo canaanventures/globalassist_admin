@@ -36,12 +36,12 @@ export class AddUsersComponent extends UserComponent implements OnInit {
       toastr
     );
     this.addMemberForm = new FormGroup({
-      Id: new FormControl(0, [Validators.required, Validators.email]),
-      Salutations: new FormControl("Mr.", [Validators.required, Validators.email]),
+      Id: new FormControl(0, [Validators.required]),
+      Salutations: new FormControl("Mr.", [Validators.required]),
       FirstName: new FormControl("", [Validators.required]),
       LastName: new FormControl("", [Validators.required]),
       RoleId: new FormControl("5", [Validators.required]),
-      EmailId: new FormControl("", [Validators.required]),
+      EmailId: new FormControl("", [Validators.required, Validators.email]),
       PhoneNo: new FormControl("", [Validators.required]),
       isActive: new FormControl(true, [Validators.required]),
       Address: new FormControl("", []),
@@ -127,7 +127,7 @@ export class AddUsersComponent extends UserComponent implements OnInit {
     this.isSubmitted = true;
     if (this.addMemberForm.valid) {
       this.spinner.show();
-      this.ApiService.getAll('/user/addusers', this.addMemberForm.value).subscribe(response => {
+      this.ApiService.create('/user/addusers', this.addMemberForm.value).subscribe(response => {
         if ((response as any).isSuccess) {
           this.isSubmitted = false;
           this.addMemberForm.reset();

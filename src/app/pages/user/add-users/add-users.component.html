@@ -110,6 +110,10 @@
                                     *ngIf="isSubmitted && addMemberForm.controls.EmailId.errors?.required">
                                     Email Id is required.
                                 </span>
+                                <span class="error-mess"
+                                    *ngIf="isSubmitted && addMemberForm.controls.EmailId.errors?.email">
+                                    Valid email Id is required.
+                                </span>
                             </div>
                             <label for="cemail" class="control-label col-lg-2">Phone Number <span class="colred">
                                     *</span></label>
