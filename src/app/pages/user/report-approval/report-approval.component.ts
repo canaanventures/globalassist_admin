@@ -32,7 +32,7 @@ export class ReportApprovalComponent extends UserComponent implements OnInit {
 
   ngOnInit(): void {
     this.spinner.show();
-    this.ApiService.getAll('/report/getreports', { OperationId: this.user.RoleId == 3 ? 5 : 6, SupervisorId: this.user.Id, CoordinatorId: this.user.Id }).subscribe(response => {
+    this.ApiService.getAll('/report/getreports', { OperationId: this.user.RoleId == 3 ? 5 : this.user.RoleId == 2 ? 8 : 6, SupervisorId: this.user.Id, CoordinatorId: this.user.Id }).subscribe(response => {
       if (!(response as any).isSuccess)
         this.toastr.error((response as any).message);
       else

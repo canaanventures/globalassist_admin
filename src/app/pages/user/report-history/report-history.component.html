@@ -22,13 +22,15 @@
                         </dxi-column>
                         <dxi-column dataField="NoOfSocialProjects" dataType="string">
                         </dxi-column>
-                        <dxi-column dataField="SupervisorApproval" [allowFiltering]="false" [allowSorting]="false"
+                        <dxi-column dataField="Supervisor Approval" dataField="SupervisorApproval"
+                            cellTemplate="SupervisorApproval" [allowFiltering]="false" [allowSorting]="false"
                             dataType="boolean">
                         </dxi-column>
-                        <dxi-column dataField="CoordinatorApproval" [allowFiltering]="false" [allowSorting]="false"
+                        <dxi-column caption="Coordinator Approval" dataField="CoordinatorApproval"
+                            cellTemplate="CoordinatorApproval" [allowFiltering]="false" [allowSorting]="false"
                             dataType="boolean">
                         </dxi-column>
-                        <dxi-column dataField="PostedOn" dataType="date">
+                        <dxi-column dataField="OverallStatus" [allowFiltering]="false" [allowSorting]="false">
                         </dxi-column>
                         <dxi-column caption="Action" [allowFiltering]="false" [allowSorting]="false"
                             cellTemplate="cellTemplate"></dxi-column>
@@ -39,6 +41,12 @@
                                 (click)="Action(data,'edit')"></i>
                             <i class="fas fa-redo" title="Repost" style="color: #4caf50;"
                                 (click)="Action(data,'repost')"></i>
+                        </div>
+                        <div *dxTemplate="let data of 'SupervisorApproval'">
+                            <span>{{data.value == false ? 'Not Approved' : 'Approved'}}</span>
+                        </div>
+                        <div *dxTemplate="let data of 'CoordinatorApproval'">
+                            <span>{{data.value == false ? 'Not Approved' : 'Approved'}}</span>
                         </div>
                     </dx-data-grid>
                 </div>

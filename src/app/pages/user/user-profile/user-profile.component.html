@@ -96,7 +96,7 @@
                                                         class="form-control" disabled>
                                                 </div>
                                             </div>
-                                            <div class="form-group">
+                                            <div class="form-group" *ngIf="user.RoleId > 2">
                                                 <label class="col-lg-2 control-label">Organization Name</label>
                                                 <div class="col-lg-6">
                                                     <input formControlName="OrgName" type="text" id="c-name"

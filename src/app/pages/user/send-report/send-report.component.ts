@@ -73,7 +73,8 @@ export class SendReportComponent extends UserComponent implements OnInit {
       isPhotoShared: new FormControl("Yes", [Validators.required]),
       isVideoShared: new FormControl("Yes", [Validators.required]),
       SupervisorRemarks: new FormControl("", []),
-      CoordinatorRemarks: new FormControl("", [])
+      CoordinatorRemarks: new FormControl("", []),
+      SponserRemarks: new FormControl("", [])
     });
     if (sessionStorage.getItem('readonly') && sessionStorage.getItem('readonly') != null && (sessionStorage.getItem('readonly') == 'true')) {
       this.isReadyOnly = true;
@@ -85,6 +86,10 @@ export class SendReportComponent extends UserComponent implements OnInit {
       }
       else if (sessionStorage.getItem('roleId') == "4") {
         control = this.reportForm.get('SupervisorRemarks');
+        control.disabled ? control.enable() : control.disable();
+      }
+      else if (sessionStorage.getItem('roleId') == "2") {
+        control = this.reportForm.get('SponserRemarks');
         control.disabled ? control.enable() : control.disable();
       }
     }
@@ -118,7 +123,8 @@ export class SendReportComponent extends UserComponent implements OnInit {
       isPhotoShared: response.isPhotoShared,
       isVideoShared: response.isVideoShared,
       SupervisorRemarks: response.SupervisorRemarks == null ? '' : response.SupervisorRemarks,
-      CoordinatorRemarks: response.CoordinatorRemarks == null ? '' : response.CoordinatorRemarks
+      CoordinatorRemarks: response.CoordinatorRemarks == null ? '' : response.CoordinatorRemarks,
+      SponserRemarks: response.CoordinatorRemarks == null ? '' : response.SponserRemarks
     })
   }
 
@@ -150,7 +156,7 @@ export class SendReportComponent extends UserComponent implements OnInit {
 
   reportAction(action) {
     this.spinner.show();
-    this.ApiService.create('/report/approvereport', { RoleId: this.user.RoleId, ReportId: this.reportForm.get('Id').value, userId: this.user.Id, isApproved: action == 'approve' ? true : false, Remarks: this.user.RoleId == '3' ? this.reportForm.value.CoordinatorRemarks : this.reportForm.value.SupervisorRemarks }).subscribe(response => {
+    this.ApiService.create('/report/approvereport', { RoleId: this.user.RoleId, ReportId: this.reportForm.get('Id').value, userId: this.user.Id, isApproved: action == 'approve' ? true : false, Remarks: this.user.RoleId == '3' ? this.reportForm.value.CoordinatorRemarks : this.user.RoleId == '2' ? this.reportForm.value.SponserRemarks : this.reportForm.value.SupervisorRemarks }).subscribe(response => {
       if ((response as any).isSuccess) {
         this.toastr.success((response as any).message);
         this.router.navigateByUrl('/reportapproval')

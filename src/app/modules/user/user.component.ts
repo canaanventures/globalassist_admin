@@ -124,7 +124,7 @@ export class UserComponent extends AppComponent implements OnInit {
       var target = document.getElementById('reportapproval')
       target.className = ' active';
     }
-    else if (this.router.url.includes('sendreport')) {
+    else if (this.router.url.includes('sendreport') && this.user.RoleId != 2) {
       var target = document.getElementById('sendreport')
       target.className = ' active';
     }
