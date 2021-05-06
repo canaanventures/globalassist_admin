@@ -94,6 +94,9 @@ export class UserComponent extends AppComponent implements OnInit {
       sessionStorage.removeItem('roleId');
       this.router.navigateByUrl('/login');
     }
+    else if (page == 'changepassword')
+      this.router.navigateByUrl('/changepassword');
+
   }
 
   setActivePage() {
