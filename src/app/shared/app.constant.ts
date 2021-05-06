@@ -18,9 +18,9 @@ export const CONST = Object.freeze({
         SELF: 'register',
         TITLE: 'register'
       },
-      FORGET_PASSWORD: {
-        SELF: 'forgetpassword',
-        TITLE: 'forgetpassword'
+      RESET_PASSWORD: {
+        SELF: 'resetpassword',
+        TITLE: 'resetpassword'
       },
       PROFILE: {
         SELF: 'profile',

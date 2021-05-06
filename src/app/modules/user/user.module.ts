@@ -12,7 +12,6 @@ import { AppSharedModule } from '../../shared/app.shared.module';
 import { CONST } from '../../shared/app.constant';
 import { UserComponent } from './user.component';
 import { ChangePasswordComponent } from 'src/app/pages/user/changepassword/changepassword.component';
-import { ForgotPasswordComponent } from 'src/app/pages/user/forgot-password/forgot-password.component';
 import { UserProfileComponent } from 'src/app/pages/user/user-profile/user-profile.component';
 import { AddUsersComponent } from 'src/app/pages/user/add-users/add-users.component';
 import { MembersListComponent } from 'src/app/pages/user/members-list/members-list.component';
@@ -43,13 +42,6 @@ const routes: Routes = [{
       component: ChangePasswordComponent,
       data: {
         title: CONST.PATH.USER.CHANGEPASSWORD.TITLE
-      }
-    },
-    {
-      path: CONST.PATH.USER.FORGET_PASSWORD.SELF,
-      component: ForgotPasswordComponent,
-      data: {
-        title: CONST.PATH.USER.FORGET_PASSWORD.TITLE
       }
     },
     {
@@ -115,7 +107,6 @@ const routes: Routes = [{
   declarations: [
     UserComponent,
     ChangePasswordComponent,
-    ForgotPasswordComponent,
     UserProfileComponent,
     AddUsersComponent,
     MembersListComponent,

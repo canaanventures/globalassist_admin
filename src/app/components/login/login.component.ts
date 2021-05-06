@@ -4,6 +4,7 @@ import { ApiService } from 'src/app/shared/app.service';
 import { ToastrService } from 'ngx-toastr';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import * as $ from 'jquery';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,6 +13,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
   isSubmitted: boolean = false;
+  UserEmail: any = '';
   constructor(
     public router: Router,
     public ApiService: ApiService,
@@ -44,4 +46,20 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  forgotPassword() {
+    if (this.UserEmail !== "") {
+      this.spinner.show();
+      this.ApiService.create('/auth/forgotpassword', { UserEmail: this.UserEmail }).subscribe(response => {
+        if ((response as any).isSuccess) {
+          this.toastr.success(response.message);
+          $('#closeModal').click();
+        }
+        else
+          this.toastr.error((response as any).message);
+        this.spinner.hide();
+      })
+    }
+    else
+      this.toastr.error('Email Id is required');
+  }
 }

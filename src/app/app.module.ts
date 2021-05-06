@@ -16,17 +16,22 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './components/login/login.component';
-let user = JSON.parse(sessionStorage.getItem('globalassist'));
+import { ForgotPasswordComponent } from './pages/user/forgot-password/forgot-password.component';
 
 const routes: Routes = [
   {
     path: CONST.PATH.LOGIN.SELF,
     component: LoginComponent
+  },
+  {
+    path: CONST.PATH.USER.RESET_PASSWORD.SELF,
+    component: ForgotPasswordComponent
   }];
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponent
+    LoginComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
