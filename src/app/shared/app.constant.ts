@@ -9,9 +9,9 @@ export const CONST = Object.freeze({
     // For User Module
     USER: {
       SELF: '',
-      HOME: {
-        SELF: 'home',
-        TITLE: 'home'
+      CHANGEPASSWORD: {
+        SELF: 'changepassword',
+        TITLE: 'changepassword'
       },
 
       REGISTER: {

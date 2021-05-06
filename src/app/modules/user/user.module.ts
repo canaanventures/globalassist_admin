@@ -11,7 +11,7 @@ import { AppSharedModule } from '../../shared/app.shared.module';
 /* [ Constant ] */
 import { CONST } from '../../shared/app.constant';
 import { UserComponent } from './user.component';
-import { HomeComponent } from 'src/app/pages/user/home/home.component';
+import { ChangePasswordComponent } from 'src/app/pages/user/changepassword/changepassword.component';
 import { ForgotPasswordComponent } from 'src/app/pages/user/forgot-password/forgot-password.component';
 import { UserProfileComponent } from 'src/app/pages/user/user-profile/user-profile.component';
 import { AddUsersComponent } from 'src/app/pages/user/add-users/add-users.component';
@@ -39,10 +39,10 @@ const routes: Routes = [{
       redirectTo: path
     },
     {
-      path: CONST.PATH.USER.HOME.SELF,
-      component: HomeComponent,
+      path: CONST.PATH.USER.CHANGEPASSWORD.SELF,
+      component: ChangePasswordComponent,
       data: {
-        title: CONST.PATH.USER.HOME.TITLE
+        title: CONST.PATH.USER.CHANGEPASSWORD.TITLE
       }
     },
     {
@@ -114,7 +114,7 @@ const routes: Routes = [{
 @NgModule({
   declarations: [
     UserComponent,
-    HomeComponent,
+    ChangePasswordComponent,
     ForgotPasswordComponent,
     UserProfileComponent,
     AddUsersComponent,

@@ -131,6 +131,7 @@ export class AddUsersComponent extends UserComponent implements OnInit {
         if ((response as any).isSuccess) {
           this.isSubmitted = false;
           this.addMemberForm.reset();
+          this.router.navigateByUrl('/memberlist');
           this.toastr.success(response.message);
         }
         else
@@ -139,7 +140,4 @@ export class AddUsersComponent extends UserComponent implements OnInit {
       })
     }
   }
-
-
-
 }
