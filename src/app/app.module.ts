@@ -44,7 +44,7 @@ const routes: Routes = [
     NgxSpinnerModule,
     SidebarModule.forRoot(),
     ToastrModule.forRoot(),
-    RouterModule.forChild(routes),
+    RouterModule.forRoot(routes, { useHash: true }),
   ],
   providers: [
     ApiService,
