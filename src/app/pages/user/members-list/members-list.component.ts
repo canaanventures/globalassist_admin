@@ -49,4 +49,17 @@ export class MembersListComponent extends UserComponent implements OnInit {
     window.open(downloadLink);
   }
 
+  Action(report, action) {
+    if (action == 'info') {
+      sessionStorage.setItem('memberId', report.data.Id);
+      sessionStorage.setItem("readonly", 'true');
+      this.router.navigateByUrl('/addusers');
+    }
+    else if (action == 'edit') {
+      sessionStorage.setItem('memberId', report.data.Id);
+      sessionStorage.setItem("readonly", 'false');
+      this.router.navigateByUrl('/addusers');
+    }
+  }
+
 }

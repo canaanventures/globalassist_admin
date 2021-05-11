@@ -53,6 +53,10 @@ export const CONST = Object.freeze({
       REPORTHISTORY: {
         SELF: 'reporthistory',
         TITLE: 'reporthistory'
+      },
+      OVERALLHISTORY: {
+        SELF: 'overallreport',
+        TITLE: 'overallreport'
       }
     }
   }

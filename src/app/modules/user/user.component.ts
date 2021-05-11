@@ -96,6 +96,9 @@ export class UserComponent extends AppComponent implements OnInit {
     }
     else if (page == 'changepassword')
       this.router.navigateByUrl('/changepassword');
+    else if (page == 'performance') {
+      this.router.navigateByUrl('/overallreport');
+    }
 
   }
 
@@ -133,6 +136,10 @@ export class UserComponent extends AppComponent implements OnInit {
     }
     else if (this.router.url.includes('reporthistory')) {
       var target = document.getElementById('reporthistory')
+      target.className = ' active';
+    }
+    else if (this.router.url.includes('overallreport')) {
+      var target = document.getElementById('overallreport')
       target.className = ' active';
     }
   }

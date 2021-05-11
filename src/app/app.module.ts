@@ -17,6 +17,7 @@ import { AppComponent } from './app.component';
 import { ToastrModule } from 'ngx-toastr';
 import { LoginComponent } from './components/login/login.component';
 import { ForgotPasswordComponent } from './pages/user/forgot-password/forgot-password.component';
+import { OverallReportComponent } from './pages/user/overall-report/overall-report.component';
 
 const routes: Routes = [
   {
@@ -31,7 +32,8 @@ const routes: Routes = [
   declarations: [
     AppComponent,
     LoginComponent,
-    ForgotPasswordComponent
+    ForgotPasswordComponent,
+    OverallReportComponent
   ],
   imports: [
     BrowserModule,

@@ -5,6 +5,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from "ngx-toastr";
 import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
+import { ChartsModule } from 'ng2-charts';
 
 /* [ Shared Module ] */
 import { AppSharedModule } from '../../shared/app.shared.module';
@@ -20,6 +21,7 @@ import { ReportHistoryComponent } from 'src/app/pages/user/report-history/report
 import { SendReportComponent } from 'src/app/pages/user/send-report/send-report.component';
 import { AddOrganizationComponent } from 'src/app/pages/user/add-organization/add-organization.component';
 import { OrganizationListComponent } from 'src/app/pages/user/organization-list/organization-list.component';
+import { OverallReportComponent } from 'src/app/pages/user/overall-report/overall-report.component';
 let user = JSON.parse(sessionStorage.getItem('globalassist'));
 let path = '/login';
 if (user && user !== null)
@@ -99,6 +101,13 @@ const routes: Routes = [{
       data: {
         title: CONST.PATH.USER.SENDREPORT.TITLE
       }
+    },
+    {
+      path: CONST.PATH.USER.OVERALLHISTORY.SELF,
+      component: OverallReportComponent,
+      data: {
+        title: CONST.PATH.USER.OVERALLHISTORY.TITLE
+      }
     }
   ]
 }];
@@ -123,6 +132,7 @@ const routes: Routes = [{
     HttpClientModule,
     AppSharedModule,
     DxDataGridModule,
+    ChartsModule,
     ToastrModule.forRoot(),
     RouterModule.forChild(routes),
   ],

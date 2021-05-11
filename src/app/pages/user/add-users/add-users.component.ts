@@ -19,6 +19,7 @@ export class AddUsersComponent extends UserComponent implements OnInit {
   CoordinatorList: Array<any> = [];
   SupervisorList: Array<any> = [];
   memberId: Number = sessionStorage.getItem('memberId') !== null ? parseInt(sessionStorage.getItem('memberId')) : 0;
+  isReadyOnly: Boolean = false;
   constructor(
     activatedRoute: ActivatedRoute,
     router: Router,
@@ -57,17 +58,34 @@ export class AddUsersComponent extends UserComponent implements OnInit {
       this.onOrganizationChange(this.user.OrgId);
       this.addMemberForm.controls['OrgId'].disable();
     }
+
+    if (sessionStorage.getItem('readonly') && sessionStorage.getItem('readonly') != null && (sessionStorage.getItem('readonly') == 'true')) {
+      this.addMemberForm.disable();
+      this.isReadyOnly = true;
+    }
   }
 
 
   ngOnInit(): void {
     this.spinner.show();
     this.ApiService.getAll('/org/getallorg', { OrgId: 0 }).subscribe(response => {
-      if (!(response as any).isSuccess)
+      if (!(response as any).isSuccess) {
         this.toastr.error((response as any).message);
-      else
+        this.spinner.hide();
+      }
+      else {
         this.organizationList = response.data;
-      this.spinner.hide();
+        if (this.memberId !== 0)
+          this.ApiService.getAll('/user/getusers', { OperationId: 5, userId: this.memberId }).subscribe(response1 => {
+            if (!(response1 as any).isSuccess)
+              this.toastr.error((response1 as any).message);
+            else
+              this.setFormValue(response1.data[0]);
+            this.spinner.hide();
+          })
+        else
+          this.spinner.hide();
+      }
     })
   }
 
@@ -97,6 +115,7 @@ export class AddUsersComponent extends UserComponent implements OnInit {
           SupervisorId: response.SupervisorId
         })
       }
+      this.onOrganizationChange(response.OrgId);
     }
   }
 
@@ -127,6 +146,7 @@ export class AddUsersComponent extends UserComponent implements OnInit {
     this.isSubmitted = true;
     if (this.addMemberForm.valid) {
       this.spinner.show();
+      debugger
       this.ApiService.create('/user/addusers', this.addMemberForm.value).subscribe(response => {
         if ((response as any).isSuccess) {
           this.isSubmitted = false;
@@ -139,5 +159,10 @@ export class AddUsersComponent extends UserComponent implements OnInit {
         this.spinner.hide();
       })
     }
+  }
+
+  ngOnDestroy() {
+    sessionStorage.removeItem('memberId');
+    sessionStorage.removeItem('readonly');
   }
 }

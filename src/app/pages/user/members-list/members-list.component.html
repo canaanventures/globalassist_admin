@@ -32,6 +32,14 @@
                         </dxi-column>
                         <dxi-column dataField="isActive" dataType="boolean">
                         </dxi-column>
+                        <dxi-column caption="Action" [allowFiltering]="false" [allowSorting]="false"
+                            cellTemplate="cellTemplate"></dxi-column>
+                        <div *dxTemplate="let data of 'cellTemplate'">
+                            <i class="fas fa-info-circle" style="color: #3f51b5;" title="Info"
+                                (click)="Action(data,'info')"></i>
+                            <i class="fas fa-edit" title="Edit" style="color: #f06033;"
+                                (click)="Action(data,'edit')"></i>
+                        </div>
                     </dx-data-grid>
                 </div>
             </div>

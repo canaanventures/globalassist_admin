@@ -18,10 +18,11 @@
                                         <option *ngIf="user.RoleId == 1" value="3">Coordinator</option>
                                         <option value="4">Supervisor</option>
                                         <option value="5">Field Officer</option>
+                                        <option value="6">Sponser Representative</option>
                                     </select>
                                 </div>
                             </div>
-                            <div *ngIf="addMemberForm.value.RoleId > 2">
+                            <div *ngIf="addMemberForm.value.RoleId > 2 && addMemberForm.value.RoleId != 6">
                                 <label for="cname" class="control-label col-lg-2">Organization Name <span
                                         class="colred">
                                         *</span></label>
@@ -36,7 +37,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div *ngIf="addMemberForm.value.RoleId > 3">
+                            <div *ngIf="addMemberForm.value.RoleId > 3 && addMemberForm.value.RoleId != 6">
                                 <label for="cname" class="control-label col-lg-2">Co-ordinator <span class="colred">
                                         *</span></label>
                                 <div class="col-lg-4">
@@ -58,7 +59,7 @@
                                     <div class="select">
                                         <select formControlName="SupervisorId">
                                             <option value="">Select Supervisor</option>
-                                            <option value="{{supervisor.id}}" *ngFor="let supervisor of SupervisorList">
+                                            <option value="{{supervisor.Id}}" *ngFor="let supervisor of SupervisorList">
                                                 {{supervisor.FirstName}}&nbsp;{{supervisor.LastName}}
                                             </option>
                                         </select>
@@ -126,7 +127,8 @@
                                 </span>
                             </div>
                         </div>
-                        <div class="form-group " *ngIf="addMemberForm.value.RoleId > 2">
+                        <div class="form-group "
+                            *ngIf="addMemberForm.value.RoleId > 2 && addMemberForm.value.RoleId != 6">
                             <label for="cname" class="control-label col-lg-2">Address</label>
                             <div class="col-lg-4">
                                 <textarea class=" form-control" id="cname" name="name" type="text"
@@ -148,21 +150,7 @@
                                     formControlName="Country" />
                             </div>
                         </div>
-                        <!-- <div class="form-group">
-                            <label class="control-label col-md-3">Date</label>
-                            <div class="col-md-4">
-                                <div data-date="2014-02-01T10:05:00Z" class="input-group date form_datetime-adv">
-                                    <input type="text" class="form-control" value="2014-01-01 10:00" readonly size="16">
-                                    <div class="input-group-btn">
-                                        <button type="button" class="btn btn-theme02 date-reset"><i
-                                                class="fa fa-times"></i></button>
-                                        <button type="button" class="btn btn-theme date-set"><i
-                                                class="fa fa-calendar"></i></button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div> -->
-                        <div class="form-group">
+                        <div class="form-group" *ngIf="!isReadyOnly">
                             <div class="col-lg-offset-2 col-lg-6">
                                 <button class="btn btn-theme">Save</button>
                             </div>

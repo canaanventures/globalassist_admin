@@ -18,9 +18,10 @@
                 <li *ngIf="user.RoleId !=5" id="sub-menu" class='sub-menu' (click)="submenu($event)">
                     <i class="fa fa-desktop"></i>Contact
                     <ul class="sub-item">
-                        <li id="memberlist" *ngIf="user.RoleId != 4 && user.RoleId !=2"
+                        <li id="memberlist" *ngIf="user.RoleId != 4 && user.RoleId !=2 && user.RoleId !=6"
                             (click)="Openpage('member-list')">Member List</li>
-                        <li id="addmember" *ngIf="user.RoleId != 4 && user.RoleId !=2" (click)="Openpage('add-member')">
+                        <li id="addmember" *ngIf="user.RoleId != 4 && user.RoleId !=2 && user.RoleId !=6"
+                            (click)="Openpage('add-member')">
                             Add Member</li>
                         <li *ngIf="user.RoleId == 1" id="orglist" (click)="Openpage('org-list')">Organization List</li>
                         <li *ngIf="user.RoleId == 1" id="addorg" (click)="Openpage('add-org')">Add Organization</li>
@@ -34,8 +35,9 @@
                 <li *ngIf="user.RoleId == 5" id="reporthistory" (click)="Openpage('reporthistory')"><i
                         class="fa fa-book"></i>Report
                     History</li>
-                <!-- <li (click)="Openpage('dashboard')" id="dashboard"><i class="fas fa-tachometer-alt"></i> &nbsp;
-                    Dashboard</li> -->
+                <li *ngIf="user.RoleId != 5" (click)="Openpage('performance')" id="overallreport"><i
+                        class="fas fa-tachometer-alt"></i> &nbsp;
+                    Overall Reports</li>
                 <li (click)="Openpage('logout')"><i class="fas fa-sign-out-alt"></i> &nbsp; Logout</li>
             </ul>
         </nav>
