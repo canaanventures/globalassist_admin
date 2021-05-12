@@ -4,6 +4,7 @@ import { TruncatePipe, PhonePrefixPlusPipe } from './app.pipe';
 /* [ Shared Plugins ] */
 import { SlideshowModule } from 'ng-simple-slideshow';
 import { SidebarModule } from 'ng-sidebar';
+import { DxDataGridModule } from 'devextreme-angular/ui/data-grid';
 
 /* [ shared Module ] */
 import {
@@ -43,6 +44,7 @@ import {
     NumberZeroGreaterDirective,
     SlideshowModule,
     SidebarModule,
+    DxDataGridModule
   ],
   // schemas: [NO_ERRORS_SCHEMA, CUSTOM_ELEMENTS_SCHEMA]
 })

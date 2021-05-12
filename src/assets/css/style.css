@@ -927,10 +927,10 @@ PANELS CONFIGURATIONS
 
 .grey-panel {
     text-align: center;
-    background: #dfdfe1;
+    background: #dfdfe196;
 }
 .grey-panel .grey-header {
-    background: #ccd1d9;
+    background: #ccd1d987;
     padding: 3px;
     margin-bottom: 15px;
 }

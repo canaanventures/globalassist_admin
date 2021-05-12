@@ -46,6 +46,19 @@ select {
     color: #f39c12;
 }
 
-.tab-content>.actives {
+.tab-content > .actives {
     display: block;
+}
+
+.donut-chart canvas.chartjs-render-monitor {
+    display: block;
+    width: 400px !important;
+    height: 190px !important;
+    margin-left: 45px !important;
+}
+
+.donut-chart h2 {
+    position: relative;
+    bottom: 76px;
+    left: 38px;
 }

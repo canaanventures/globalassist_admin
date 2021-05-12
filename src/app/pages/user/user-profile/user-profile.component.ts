@@ -6,7 +6,9 @@ import { Location } from '@angular/common';
 import { ToastrService } from 'ngx-toastr';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { UserComponent } from 'src/app/modules/user/user.component';
-
+// Charts Import
+import { ChartOptions, ChartType, ChartDataSets } from 'chart.js';
+import { Color, Label } from 'ng2-charts';
 @Component({
   selector: 'app-user-profile',
   templateUrl: './user-profile.component.html',
@@ -16,6 +18,45 @@ export class UserProfileComponent extends UserComponent implements OnInit {
   user: any = JSON.parse(sessionStorage.getItem('globalassist'));
   profileForm: FormGroup;
   isSubmitted: boolean = false;
+  // Bar Chart
+  barChartOptions: ChartOptions = {
+    responsive: true,
+  };
+  barChartLabels: Label[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+  barChartType: ChartType = 'bar';
+  barChartLegend = true;
+  barChartPlugins = [];
+
+  barChartData: ChartDataSets[] = [
+    { data: [45, 37, 60, 70, 46, 33], label: 'No of Villages Reached' }
+  ];
+
+  // Line chart
+  lineChartData: ChartDataSets[] = [
+    { data: [85, 72, 78, 75, 77, 75], label: 'Monthly Report' },
+  ];
+
+  lineChartLabels: Label[] = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'];
+
+  lineChartOptions = {
+    responsive: true,
+  };
+
+  lineChartColors: Color[] = [
+    {
+      borderColor: 'black',
+      backgroundColor: 'rgba(255,255,0,0.28)',
+    },
+  ];
+
+  lineChartLegend = true;
+  lineChartPlugins = [];
+  lineChartType = 'line';
+
+  // Doughnut Chart
+  public doughnutChartLabels = ['Submitted', 'Pending'];
+  public doughnutChartData = [60, 40];
+  public doughnutChartType = 'doughnut';
   constructor(
     activatedRoute: ActivatedRoute,
     router: Router,
