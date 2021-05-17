@@ -1,7 +1,7 @@
 <section class="wrapper">
     <div class="dashboard col-lg-12">
         <div class="row mt">
-            <div class="col-lg-12">
+            <div class="col-lg-12" *ngIf="user.RoleId != 5">
                 <div class="row content-panel">
                     <div class="col-md-4 profile-text">
                         <h3>Dashboard</h3>
@@ -16,13 +16,13 @@
                             </div>
                             <div style="display: block">
                                 <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels"
-                                    [chartType]="doughnutChartType" ></canvas>
+                                    [chartType]="doughnutChartType"></canvas>
                             </div>
                             <div class="row">
                                 <div class="col-sm-6 col-xs-6 goleft">
                                 </div>
                                 <div class="col-sm-6 col-xs-6">
-                                    <h2>21%</h2>
+                                    <h2>{{CompletedPercent}}%</h2>
                                 </div>
                             </div>
                         </div>

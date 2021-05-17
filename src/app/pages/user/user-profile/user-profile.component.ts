@@ -18,6 +18,7 @@ export class UserProfileComponent extends UserComponent implements OnInit {
   user: any = JSON.parse(sessionStorage.getItem('globalassist'));
   profileForm: FormGroup;
   isSubmitted: boolean = false;
+  CompletedPercent: number = 0;
   // Bar Chart
   barChartOptions: ChartOptions = {
     responsive: true,
@@ -73,6 +74,8 @@ export class UserProfileComponent extends UserComponent implements OnInit {
       spinner,
       toastr
     );
+    if (this.user.RoleId !== 5)
+      this.getGraphData();
   }
 
   ngOnInit(): void {
@@ -144,6 +147,22 @@ export class UserProfileComponent extends UserComponent implements OnInit {
         this.spinner.hide();
       })
     }
+  }
+
+  getGraphData() {
+    this.spinner.show();
+    this.ApiService.getAll('/report/getgraphdata', { OperationId: this.user.RoleId == 1 || this.user.RoleId == 2 ? 1 : this.user.RoleId == 3 ? 2 : 3, SupervisorId: this.user.Id, CoordinatorId: this.user.Id, OrgId: this.user.OrgId ? this.user.OrgId : 0 }).subscribe(response => {
+      if (!(response as any).isSuccess)
+        this.toastr.error((response as any).message);
+      else {
+        this.barChartData[0].data = response.data.BarData;
+        this.lineChartData[0].data = response.data.BarData;
+        this.CompletedPercent = response.data.ProgressData[0].SubmittedCount == 0 ? 0 : ((response.data.ProgressData[0].SubmittedCount / response.data.ProgressData[0].UserCount) * 100)
+        let PendingPercent = this.CompletedPercent == 0 ? 100 : (100 - this.CompletedPercent);
+        this.doughnutChartData = [this.CompletedPercent, PendingPercent]
+      }
+      this.spinner.hide();
+    })
   }
 
 }
